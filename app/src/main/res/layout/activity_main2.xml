@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zsc.game.widget.ResideLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cehua"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg"
+    tools:context=".ui.activity.Main2Activity">
+
+    <com.zsc.game.widget.theme.ColorRelativeLayout
+        android:id="@+id/crl_cehua"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f00"
+        ></com.zsc.game.widget.theme.ColorRelativeLayout>
+
+        <com.zsc.game.widget.theme.ColorRelativeLayout
+            android:id="@+id/crl_zhu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.zsc.game.widget.UnScrollViewPager
+                android:id="@+id/unVP"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </com.zsc.game.widget.UnScrollViewPager>
+            <RadioGroup
+                android:id="@+id/tab_rg_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@mipmap/bottom_bg"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/tab_rb_1"
+                    style="@style/tab_rb_style"
+                    android:checked="true"
+                    android:drawableTop="@drawable/tab_02"
+                    android:text="精选" />
+
+                <RadioButton
+                    android:id="@+id/tab_rb_2"
+                    style="@style/tab_rb_style"
+                    android:drawableTop="@drawable/tab_03"
+                    android:text="专题" />
+
+                <RadioButton
+                    android:id="@+id/tab_rb_3"
+                    style="@style/tab_rb_style"
+                    android:drawableTop="@drawable/tab_01"
+                    android:text="发现" />
+
+                <RadioButton
+                    android:id="@+id/tab_rb_4"
+                    style="@style/tab_rb_style"
+                    android:drawableTop="@drawable/tab_04"
+                    android:text="我的" />
+            </RadioGroup>
+
+        </com.zsc.game.widget.theme.ColorRelativeLayout>
+
+
+
+</com.zsc.game.widget.ResideLayout>
