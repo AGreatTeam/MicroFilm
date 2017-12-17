@@ -8,7 +8,7 @@ import com.zsc.game.mvp.presenter.FbPresenter;
 import com.zsc.game.mvp.view.FbView;
 
 /**
- * 类的用途：
+ * 类的用途：专题
  * <p>
  * mac周昇辰
  * 2017/12/15  18:33
