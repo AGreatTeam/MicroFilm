@@ -20,7 +20,7 @@ public class FragmentD extends BaseFragment<FdPresenter> implements FdView {
 
     @Override
     protected int setLayout() {
-        return R.layout.fragmentc;
+        return R.layout.fragmentd;
     }
 
     @Override

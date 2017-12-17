@@ -17,4 +17,6 @@ public interface ApiService {
     @GET("front/homePageApi/homePage.do")
     Flowable<String> getData();
 
+    //专题：http://api.svipmovie.com/front/columns/getVideoList.do?catalogId=1&pnum=10 请求方式：GET
+
 }
