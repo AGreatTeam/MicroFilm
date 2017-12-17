@@ -43,7 +43,7 @@ public class FbPresenter extends BasePresenter<FbModel,FbView> {
                             e.printStackTrace();
                         }
 
-                        // getView().showToast("成功");
+                         getView().showToast(responseBody);
                     }
 
                     @Override

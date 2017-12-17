@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp">
+
+    <ImageView
+        android:id="@+id/iv_classify"
+        android:src="@mipmap/ic_launcher"
+        android:layout_centerInParent="true"
+        android:padding="10dp"
+        android:background="#8cffffff"
+        android:layout_width="250dp"
+        android:scaleType="fitXY"
+        android:layout_height="170dp" />
+    <TextView
+        android:id="@+id/tv_classify"
+        android:text="1111"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:background="#4cffffff"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@id/iv_classify"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:padding="5dp"/>
+
+</RelativeLayout>

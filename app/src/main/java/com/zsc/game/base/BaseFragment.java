@@ -91,4 +91,10 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
     {
         return  MApplication.appComponent.plus(new MainModule());
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
 }
