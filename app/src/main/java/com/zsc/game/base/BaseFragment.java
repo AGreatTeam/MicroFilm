@@ -15,6 +15,7 @@ import com.zsc.game.di.module.MainModule;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * 类的用途：
@@ -29,6 +30,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
     @Inject
     protected P  mPresenter;
     private View view;
+    private Unbinder unbinder;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         if(view==null)
         {
             view = inflater.inflate(setLayout(),container,false);
-            ButterKnife.bind(getActivity());
+            unbinder = ButterKnife.bind(this, view);
         }
 
         initInject(ininComponent());
@@ -53,6 +55,12 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
             mPresenter.attachView( this);
         }
         return view;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
     }
 
     @Override

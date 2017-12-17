@@ -12,7 +12,6 @@
         android:id="@+id/crl_cehua"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#f00"
         ></com.zsc.game.widget.theme.ColorRelativeLayout>
 
         <com.zsc.game.widget.theme.ColorRelativeLayout
@@ -27,7 +26,7 @@
             <RadioGroup
                 android:id="@+id/tab_rg_menu"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_alignParentBottom="true"
                 android:background="@mipmap/bottom_bg"
                 android:orientation="horizontal">
