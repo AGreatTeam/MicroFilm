@@ -16,6 +16,7 @@ import com.zsc.game.di.module.MainModule;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * 类的用途：baseactivity 无需多说
@@ -30,13 +31,14 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
     @Inject
     protected P mPresenter;
+    private Unbinder unbinder;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(setLayout());
         cjs(true);
-        ButterKnife.bind(this);
+        unbinder = ButterKnife.bind(this);
         initInject(ininComponent());
         if(mPresenter!=null)
         {
@@ -94,6 +96,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     protected void onDestroy() {
         super.onDestroy();
         mPresenter.detachView();
+        unbinder.unbind();
     }
 
 

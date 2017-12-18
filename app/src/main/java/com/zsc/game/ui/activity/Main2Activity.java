@@ -99,6 +99,7 @@ public class Main2Activity extends BaseActivity<MainPresenter> implements MainVi
 
 
     @Override
+    public void showToast(String msg) {
     public void showToast(VideoInfo msg) {
 
         Toast.makeText(this, "哈哈哈", Toast.LENGTH_SHORT).show();

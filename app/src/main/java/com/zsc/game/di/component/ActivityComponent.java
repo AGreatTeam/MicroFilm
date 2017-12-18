@@ -4,6 +4,7 @@ import com.zsc.game.ui.activity.Main2Activity;
 import com.zsc.game.di.module.MainModule;
 import com.zsc.game.di.module.YourScope;
 import com.zsc.game.ui.activity.Main3Activity;
+import com.zsc.game.ui.activity.WelcomeActivity;
 import com.zsc.game.ui.fragment.FragmentA;
 import com.zsc.game.ui.fragment.FragmentB;
 import com.zsc.game.ui.fragment.FragmentC;
@@ -27,13 +28,12 @@ import dagger.Subcomponent;
 @Subcomponent(modules = MainModule.class)
 public interface ActivityComponent {
 
-
-   void Inject(Main2Activity activity);
-
-   void Inject(FragmentA fragmentA);
-   void Inject(FragmentB fragmentB);
-   void Inject(FragmentC fragmentC);
-   void Inject(FragmentD fragmentD);
+    void Inject(Main2Activity activity);
+    void Inject(FragmentA fragmentA);
+    void Inject(FragmentB fragmentB);
+    void Inject(FragmentC fragmentC);
+    void Inject(FragmentD fragmentD);
+    void Inject(WelcomeActivity welcomeActivity);
 
    void Injext(Main3Activity main3Activity);
 
