@@ -46,7 +46,7 @@ public class MainPresenter extends BasePresenter<CModel,MainView> {
                             e.printStackTrace();
                         }
 
-                        getView().showToast("成功");
+                        getView().showToast(responseBody);
                     }
 
                     @Override

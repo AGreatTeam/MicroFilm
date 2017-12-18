@@ -1,5 +1,6 @@
 package com.zsc.game.di.component;
 
+import com.zsc.game.ui.activity.ClassifyListActivity;
 import com.zsc.game.ui.activity.Main2Activity;
 import com.zsc.game.di.module.MainModule;
 import com.zsc.game.di.module.YourScope;
@@ -33,5 +34,6 @@ public interface ActivityComponent {
     void Inject(FragmentC fragmentC);
     void Inject(FragmentD fragmentD);
     void Inject(WelcomeActivity welcomeActivity);
+    void Inject(ClassifyListActivity activity);
 
 }

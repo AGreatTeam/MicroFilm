@@ -1,5 +1,6 @@
 package com.zsc.game.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -19,6 +20,7 @@ import com.zsc.game.di.component.ActivityComponent;
 import com.zsc.game.mvp.model.bean.JavaBean;
 import com.zsc.game.mvp.presenter.FbPresenter;
 import com.zsc.game.mvp.view.FbView;
+import com.zsc.game.ui.activity.ClassifyListActivity;
 import com.zsc.game.ui.adapter.FragmentBAdapter;
 
 import java.util.List;
@@ -91,7 +93,9 @@ public class FragmentB extends BaseFragment<FbPresenter> implements FbView {
             public void onItemClick(View view) {
                 int childAdapterPosition = ryView.getChildAdapterPosition(view);
                 Toast.makeText(getActivity(), "item click index = "+childAdapterPosition, Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(getActivity(), ClassifyListActivity.class);
+                intent.putExtra("index",childAdapterPosition);
+                startActivity(intent);
             }
         });
 

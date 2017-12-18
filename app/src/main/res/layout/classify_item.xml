@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="180dp">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="170dp"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    android:layout_height="260dp">
 
     <ImageView
         android:id="@+id/iv_classify"
@@ -9,9 +11,9 @@
         android:layout_centerInParent="true"
         android:padding="5dp"
         android:background="#8cffffff"
-        android:layout_width="250dp"
+        android:layout_width="170dp"
         android:scaleType="fitXY"
-        android:layout_height="170dp" />
+        android:layout_height="230dp" />
     <TextView
         android:id="@+id/tv_classify"
         android:textSize="18sp"
@@ -19,12 +21,10 @@
         android:text="1111"
         android:gravity="center"
         android:textColor="#fff"
-        android:background="#4c000000"
         android:layout_centerHorizontal="true"
         android:layout_alignBottom="@id/iv_classify"
-        android:layout_width="240dp"
+        android:layout_width="169dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
         android:padding="5dp"/>
 
-</RelativeLayout>
+</LinearLayout>
