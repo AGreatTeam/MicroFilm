@@ -24,7 +24,7 @@ public class GlobalConfigModule {
 
       private List<Interceptor> mInterceptors;
 
-      public GlobalConfigModule(Builder builder) {
+      private GlobalConfigModule(Builder builder) {
         this.baseurl=builder.baseurl;
         this.mInterceptors=builder.mInterceptors;
         this.netWorkInterceptor=builder.netWorkInterceptor;

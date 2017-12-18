@@ -1,5 +1,6 @@
 package com.zsc.game.ui.activity;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class Main2Activity extends BaseActivity<MainPresenter> implements MainView {
@@ -46,6 +48,7 @@ public class Main2Activity extends BaseActivity<MainPresenter> implements MainVi
     ColorRelativeLayout crlZhu;
     @BindView(R.id.cehua)
     ResideLayout cehua;
+
     private ContentPagerAdapter mPagerAdapter;
 
     @Override
@@ -84,14 +87,14 @@ public class Main2Activity extends BaseActivity<MainPresenter> implements MainVi
         });
 
     }
-    private List<Fragment> initFragments()
-    {
-        List<Fragment> list=new ArrayList<>();
+
+    private List<Fragment> initFragments() {
+        List<Fragment> list = new ArrayList<>();
         list.add(new FragmentA());
         list.add(new FragmentB());
         list.add(new FragmentC());
         list.add(new FragmentD());
-        return  list;
+        return list;
     }
 
     @Override
@@ -105,6 +108,7 @@ public class Main2Activity extends BaseActivity<MainPresenter> implements MainVi
 
         Toast.makeText(this, "哈哈哈", Toast.LENGTH_SHORT).show();
     }
+
 
 
 

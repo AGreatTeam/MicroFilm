@@ -34,7 +34,6 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
     }
 
     @Nullable
@@ -44,7 +43,8 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         if(view==null)
         {
             view = inflater.inflate(setLayout(),container,false);
-            ButterKnife.bind(getActivity());
+           // ButterKnife.bind(getActivity());
+            ButterKnife.bind(this, view);
         }
 
         initInject(ininComponent());
