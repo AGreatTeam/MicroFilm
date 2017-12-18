@@ -3,12 +3,10 @@ package com.zsc.game.ui.activity;
 import android.support.v4.app.Fragment;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.zsc.game.R;
 import com.zsc.game.base.BaseActivity;
 import com.zsc.game.di.component.ActivityComponent;
-import com.zsc.game.mvp.model.bean.VideoInfo;
 import com.zsc.game.mvp.presenter.MainPresenter;
 import com.zsc.game.mvp.view.MainView;
 import com.zsc.game.ui.adapter.ContentPagerAdapter;
@@ -98,11 +96,9 @@ public class Main2Activity extends BaseActivity<MainPresenter> implements MainVi
     }
 
 
-    public void showToast(VideoInfo msg) {
 
-        Toast.makeText(this, "哈哈哈", Toast.LENGTH_SHORT).show();
+    @Override
+    public void showToast(String msg) {
+
     }
-
-
-
 }

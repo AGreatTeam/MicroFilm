@@ -1,7 +1,6 @@
 package com.zsc.game.mvp.view;
 
 import com.zsc.game.base.BaseView;
-import com.zsc.game.mvp.model.bean.VideoInfo;
 
 /**
  * 类的用途：
@@ -12,6 +11,6 @@ import com.zsc.game.mvp.model.bean.VideoInfo;
 
 public interface MainView extends BaseView {
 
-    void showToast(VideoInfo msg);
+    void showToast(String msg);
 
 }

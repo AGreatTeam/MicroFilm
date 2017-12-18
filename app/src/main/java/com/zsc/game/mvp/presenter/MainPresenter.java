@@ -1,8 +1,9 @@
 package com.zsc.game.mvp.presenter;
 
+import android.util.Log;
+
 import com.zsc.game.base.BasePresenter;
 import com.zsc.game.mvp.model.CModel;
-import com.zsc.game.mvp.model.bean.VideoInfo;
 import com.zsc.game.mvp.view.MainView;
 
 import javax.inject.Inject;
@@ -26,30 +27,33 @@ public class MainPresenter extends BasePresenter<CModel,MainView> {
     }
 
     public void loadata()
-     {
-         model.loadData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSubscriber<VideoInfo>() {
+     { model.loadData()
+             .subscribeOn(Schedulers.io())
+             .observeOn(AndroidSchedulers.mainThread())
+             .subscribeWith(new DisposableSubscriber<String>() {
+                 @Override
+                 public void onNext(String responseBody) {
+                     try {
+                         //String json=responseBody.string();
+                         Log.i("xxx","我的数据"+responseBody);
+                     } catch (Exception e) {
+                         e.printStackTrace();
+                     }
+                     getView().showToast(responseBody);
+                 }
 
-                    @Override
-                    public void onNext(VideoInfo videoInfo) {
-                        getView().showToast(videoInfo);
-                    }
+                 @Override
+                 public void onError(Throwable t) {
 
-                    @Override
-                    public void onError(Throwable t) {
+                 }
 
-                    }
+                 @Override
+                 public void onComplete() {
 
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+                 }
+             });
 
      }
-
 
 
 }

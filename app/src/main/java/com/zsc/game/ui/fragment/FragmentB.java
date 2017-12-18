@@ -1,26 +1,13 @@
 package com.zsc.game.ui.fragment;
 
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
-
-import com.zsc.game.R;
-import com.zsc.game.base.BaseFragment;
-import com.zsc.game.di.component.ActivityComponent;
-import com.zsc.game.mvp.presenter.FbPresenter;
-import com.zsc.game.mvp.view.FbView;
-
-import butterknife.Unbinder;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
+
 import com.google.gson.Gson;
 import com.zsc.game.R;
 import com.zsc.game.base.BaseFragment;
@@ -28,10 +15,10 @@ import com.zsc.game.di.component.ActivityComponent;
 import com.zsc.game.mvp.model.bean.JavaBean;
 import com.zsc.game.mvp.presenter.FbPresenter;
 import com.zsc.game.mvp.view.FbView;
+import com.zsc.game.ui.activity.ClassifyListActivity;
 import com.zsc.game.ui.adapter.FragmentBAdapter;
 
 import java.util.List;
-import butterknife.ButterKnife;
 
 import butterknife.Unbinder;
 
@@ -75,15 +62,6 @@ public class FragmentB extends BaseFragment<FbPresenter> implements FbView {
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
     }
 
-//    @Nullable
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        unbinder = ButterKnife.bind(this, inflater.inflate(setLayout(),null));
-//        return super.onCreateView(inflater, container, savedInstanceState);
-//    }
-
-
-
     @Override
     public void showToast(String msg) {
         Log.i(TAG, "showToast: "+msg);
@@ -107,7 +85,9 @@ public class FragmentB extends BaseFragment<FbPresenter> implements FbView {
             public void onItemClick(View view) {
                 int childAdapterPosition = ryView.getChildAdapterPosition(view);
                 Toast.makeText(getActivity(), "item click index = "+childAdapterPosition, Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(getActivity(), ClassifyListActivity.class);
+                intent.putExtra("index",childAdapterPosition);
+                startActivity(intent);
             }
         });
 

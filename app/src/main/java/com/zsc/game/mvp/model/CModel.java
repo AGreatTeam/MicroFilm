@@ -1,7 +1,6 @@
 package com.zsc.game.mvp.model;
 
 import com.zsc.game.base.BaseModel;
-import com.zsc.game.mvp.model.bean.VideoInfo;
 import com.zsc.game.mvp.model.service.ApiService;
 
 import javax.inject.Inject;
@@ -24,8 +23,8 @@ public class CModel implements BaseModel {
     public CModel() {
     }
 
-    public Flowable<VideoInfo> loadData()
+    public Flowable<String> loadData()
     {
-        return  retrofit.create(ApiService.class).getData();
+        return  retrofit.create(ApiService.class).getData1();
     }
 }
