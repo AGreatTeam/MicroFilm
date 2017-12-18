@@ -15,7 +15,7 @@ import dagger.Subcomponent;
 
 /**
  * 类的用途：注入 桥梁
- *
+ * <p>
  * 此YourScope注解为自定义注解，作用与single一致
  * 但写single会报错 :原因 上层组件和下层组件作用域不能一致
  * <p>
@@ -34,7 +34,6 @@ public interface ActivityComponent {
     void Inject(FragmentC fragmentC);
     void Inject(FragmentD fragmentD);
     void Inject(WelcomeActivity welcomeActivity);
-
-   void Injext(Main3Activity main3Activity);
+   void Inject(Main3Activity activity);
 
 }

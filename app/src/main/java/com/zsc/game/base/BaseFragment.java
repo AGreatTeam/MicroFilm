@@ -45,15 +45,16 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         if(view==null)
         {
             view = inflater.inflate(setLayout(),container,false);
-            addLayout();
             ButterKnife.bind(this, view);
             unbinder = ButterKnife.bind(this, view);
+          //  ButterKnife.bind(getActivity());
         }
         initInject(ininComponent());
         if(mPresenter!=null)
         {
             mPresenter.attachView( this);
         }
+        addLayout();
         return view;
     }
 
@@ -85,7 +86,6 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
     {
         return  MApplication.appComponent.plus(new MainModule());
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -93,6 +93,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
     }
 
     protected  abstract void addLayout();
+
 
     @SuppressWarnings("unchecked")
     protected <T extends View> T findViewById(int id)

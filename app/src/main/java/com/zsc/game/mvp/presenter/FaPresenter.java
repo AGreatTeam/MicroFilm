@@ -42,8 +42,6 @@ public class FaPresenter extends BasePresenter<FaModel,FaView> {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-
-                       // getView().showToast("fa成功");
                     }
 
                     @Override

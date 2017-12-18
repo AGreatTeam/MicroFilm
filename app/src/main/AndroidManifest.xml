@@ -32,8 +32,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".ui.activity.ClassifyListActivity" />
-        <activity android:name=".ui.activity.Main3Activity"></activity>
+        <activity android:name="com.zsc.game.ui.activity.Main3Activity"></activity>
+
     </application>
 
 </manifest>

@@ -58,7 +58,7 @@ public class Main3Activity extends BaseActivity<ShiPinPresenter> implements ShiP
     //获取桥梁的对象
     @Override
     protected void initInject(ActivityComponent mainComponent) {
-            mainComponent.Injext(this);
+           mainComponent.Inject(this);
     }
 
     //播放视频

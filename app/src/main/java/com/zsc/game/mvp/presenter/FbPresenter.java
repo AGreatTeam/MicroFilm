@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.zsc.game.base.BasePresenter;
 import com.zsc.game.mvp.model.FbModel;
-import com.zsc.game.mvp.model.bean.VideoInfo;
 import com.zsc.game.mvp.view.FbView;
 
 import javax.inject.Inject;
@@ -32,17 +31,19 @@ public class FbPresenter extends BasePresenter<FbModel,FbView> {
         model.loadData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSubscriber<VideoInfo>() {
+                .subscribeWith(new DisposableSubscriber<String>() {
                     @Override
-                    public void onNext(VideoInfo responseBody) {
+                    public void onNext(String responseBody) {
                         try {
-                            //String json=responseBody.string();
+                            String json=responseBody.toString();
                             Log.i("xxx","我的数据"+responseBody);
+                            getView().showToast(responseBody);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
 
                          getView().showToast(responseBody);
+
                     }
 
                     @Override

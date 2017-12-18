@@ -145,11 +145,9 @@ public class FragmentA extends BaseFragment<FaPresenter> implements FaView, Swip
                 Glide.with(getActivity()).load(xbanimg.get(position)).into((ImageView) view);
             }
         });
-
         //获取精彩数据
         VideoInfo.RetBean.ListBean listBean = msg.getRet().getList().get(4);
         List<VideoInfo.RetBean.ListBean.ChildListBean> jcList = listBean.getChildList();
-
         getData(jcList);
         Log.i("ggg",listBean.getTitle());
     }

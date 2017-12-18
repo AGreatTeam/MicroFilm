@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://D:\1507DD\MicroFilm\Game.iml" filepath="D:\1507DD\MicroFilm\Game.iml" />
       <module fileurl="file://$PROJECT_DIR$/MicroFilm.iml" filepath="$PROJECT_DIR$/MicroFilm.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MicroFilm.iml" filepath="$PROJECT_DIR$/MicroFilm.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
