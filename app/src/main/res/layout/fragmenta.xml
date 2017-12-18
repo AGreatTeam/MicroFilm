@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:background="@drawable/qwe"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="@drawable/qwe">
+
     <include layout="@layout/title_bar"></include>
+
     <android.support.v4.widget.SwipeRefreshLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/id_swipe"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <com.jcodecraeer.xrecyclerview.XRecyclerView
             android:id="@+id/sift_xr"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </com.jcodecraeer.xrecyclerview.XRecyclerView>
+            android:layout_height="match_parent"></com.jcodecraeer.xrecyclerview.XRecyclerView>
     </android.support.v4.widget.SwipeRefreshLayout>
 </RelativeLayout>
