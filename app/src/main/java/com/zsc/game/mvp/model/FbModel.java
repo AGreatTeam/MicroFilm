@@ -25,6 +25,6 @@ public class FbModel implements BaseModel {
 
     public Flowable<String> loadData()
     {
-        return  retrofit.create(ApiService.class).getData1();
+        return  retrofit.create(ApiService.class).getData();
     }
 }

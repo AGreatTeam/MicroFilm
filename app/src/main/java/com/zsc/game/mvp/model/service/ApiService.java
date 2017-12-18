@@ -4,7 +4,6 @@ import com.zsc.game.mvp.model.bean.ShipinContentInfo;
 import com.zsc.game.mvp.model.bean.VideoInfo;
 
 import io.reactivex.Flowable;
-import okhttp3.ResponseBody;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -19,11 +18,11 @@ public interface ApiService {
 
     //首页：http://api.svipmovie.com/front/homePageApi/homePage.do 请求方式：GET
     @GET("front/homePageApi/homePage.do")
-    Flowable<VideoInfo> getData();
+    Flowable<String> getData();
     //专题：http://api.svipmovie.com/front/columns/getVideoList.do?catalogId=1&pnum=10 请求方式：GET
     @GET("front/videoDetailApi/videoDetail.do")
     Flowable<ShipinContentInfo> getLoadShiPin(@Query("mediaId") String id);
     //第二个页面fragmennt
     @GET("front/homePageApi/homePage.do")
-    Flowable<String> getData1();
+    Flowable<VideoInfo> getData1();
 }

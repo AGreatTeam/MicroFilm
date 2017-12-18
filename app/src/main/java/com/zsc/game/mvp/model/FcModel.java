@@ -26,6 +26,6 @@ public class FcModel implements BaseModel {
 
     public Flowable<VideoInfo> loadData()
     {
-        return  retrofit.create(ApiService.class).getData();
+        return  retrofit.create(ApiService.class).getData1();
     }
 }
