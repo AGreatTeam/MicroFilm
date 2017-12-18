@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 
 import com.zsc.game.app.MApplication;
 import com.zsc.game.di.component.ActivityComponent;
-
 import com.zsc.game.di.module.MainModule;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * 类的用途：
@@ -29,10 +29,12 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
     @Inject
     protected P  mPresenter;
     private View view;
+    private Unbinder unbinder;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
     }
 
@@ -43,8 +45,9 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         if(view==null)
         {
             view = inflater.inflate(setLayout(),container,false);
-           // ButterKnife.bind(getActivity());
-            ButterKnife.bind(this, view);
+
+            unbinder = ButterKnife.bind(this, view);
+          //  ButterKnife.bind(getActivity());
         }
 
         initInject(ininComponent());
@@ -52,6 +55,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         {
             mPresenter.attachView( this);
         }
+        addLayout();
         return view;
     }
 
@@ -82,5 +86,19 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
     protected ActivityComponent ininComponent()
     {
         return  MApplication.appComponent.plus(new MainModule());
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    protected  abstract void addLayout();
+
+
+    @SuppressWarnings("unchecked")
+    protected <T extends View> T findViewById(int id)
+    {if (view == null) {return null;}
+        return (T) view.findViewById(id);
     }
 }

@@ -1,10 +1,8 @@
 package com.zsc.game.ui.activity;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.zsc.game.R;
 import com.zsc.game.base.BaseActivity;
@@ -16,7 +14,6 @@ import com.zsc.game.ui.fragment.FragmentA;
 import com.zsc.game.ui.fragment.FragmentB;
 import com.zsc.game.ui.fragment.FragmentC;
 import com.zsc.game.ui.fragment.FragmentD;
-import com.zsc.game.widget.ResideLayout;
 import com.zsc.game.widget.UnScrollViewPager;
 import com.zsc.game.widget.theme.ColorRelativeLayout;
 
@@ -24,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 public class Main2Activity extends BaseActivity<MainPresenter> implements MainView {
@@ -46,9 +42,6 @@ public class Main2Activity extends BaseActivity<MainPresenter> implements MainVi
     RadioGroup tabRgMenu;
     @BindView(R.id.crl_zhu)
     ColorRelativeLayout crlZhu;
-    @BindView(R.id.cehua)
-    ResideLayout cehua;
-
     private ContentPagerAdapter mPagerAdapter;
 
     @Override
@@ -87,14 +80,14 @@ public class Main2Activity extends BaseActivity<MainPresenter> implements MainVi
         });
 
     }
-
-    private List<Fragment> initFragments() {
-        List<Fragment> list = new ArrayList<>();
+    private List<Fragment> initFragments()
+    {
+        List<Fragment> list=new ArrayList<>();
         list.add(new FragmentA());
         list.add(new FragmentB());
         list.add(new FragmentC());
         list.add(new FragmentD());
-        return list;
+        return  list;
     }
 
     @Override
@@ -103,13 +96,9 @@ public class Main2Activity extends BaseActivity<MainPresenter> implements MainVi
     }
 
 
+
     @Override
     public void showToast(String msg) {
 
-        Toast.makeText(this, "哈哈哈", Toast.LENGTH_SHORT).show();
     }
-
-
-
-
 }

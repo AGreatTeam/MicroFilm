@@ -1,14 +1,11 @@
 package com.zsc.game.mvp.model;
 
-import android.util.Log;
-
 import com.zsc.game.base.BaseModel;
 import com.zsc.game.mvp.model.service.ApiService;
 
 import javax.inject.Inject;
 
 import io.reactivex.Flowable;
-import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 
 /**

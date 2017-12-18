@@ -45,6 +45,11 @@ public class FragmentD extends BaseFragment<FdPresenter> implements FdView {
     }
 
     @Override
+    protected void addLayout() {
+
+    }
+
+    @Override
     public void showToast(String msg) {
 
     }

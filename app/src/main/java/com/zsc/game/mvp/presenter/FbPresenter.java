@@ -3,10 +3,8 @@ package com.zsc.game.mvp.presenter;
 import android.util.Log;
 
 import com.zsc.game.base.BasePresenter;
-import com.zsc.game.mvp.model.CModel;
 import com.zsc.game.mvp.model.FbModel;
 import com.zsc.game.mvp.view.FbView;
-import com.zsc.game.mvp.view.MainView;
 
 import javax.inject.Inject;
 
@@ -37,13 +35,15 @@ public class FbPresenter extends BasePresenter<FbModel,FbView> {
                     @Override
                     public void onNext(String responseBody) {
                         try {
-                            //String json=responseBody.string();
+                            String json=responseBody.toString();
                             Log.i("xxx","我的数据"+responseBody);
+                            getView().showToast(responseBody);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
 
-                        // getView().showToast("成功");
+                         getView().showToast(responseBody);
+
                     }
 
                     @Override

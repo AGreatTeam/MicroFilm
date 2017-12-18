@@ -5,9 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@mipmap/bg_colorful"
     tools:context=".ui.activity.Main2Activity">
-
 
     <com.zsc.game.widget.theme.ColorRelativeLayout
         android:id="@+id/crl_cehua"
@@ -28,7 +27,7 @@
             <RadioGroup
                 android:id="@+id/tab_rg_menu"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_alignParentBottom="true"
                 android:background="@mipmap/bottom_bg"
                 android:orientation="horizontal">

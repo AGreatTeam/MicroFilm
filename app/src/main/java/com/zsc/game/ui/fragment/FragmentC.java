@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import com.zsc.game.R;
 import com.zsc.game.base.BaseFragment;
 import com.zsc.game.di.component.ActivityComponent;
-import com.zsc.game.mvp.presenter.FaPresenter;
 import com.zsc.game.mvp.presenter.FcPresenter;
 import com.zsc.game.mvp.view.FcView;
 
@@ -35,6 +34,11 @@ public class FragmentC extends BaseFragment<FcPresenter> implements FcView{
     protected void initInject(ActivityComponent mainComponent) {
 
         mainComponent.Inject(this);
+    }
+
+    @Override
+    protected void addLayout() {
+
     }
 
     @Override
