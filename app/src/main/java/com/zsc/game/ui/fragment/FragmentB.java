@@ -1,6 +1,7 @@
 package com.zsc.game.ui.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -42,6 +43,7 @@ public class FragmentB extends BaseFragment<FbPresenter> implements FbView {
     RecyclerView ryView;
     @BindView(R.id.swipe_refresh_layout)
     SwipeRefreshLayout swipeRefreshLayout;
+    private Unbinder unbinder;
 
     @Override
     protected int setLayout() {
@@ -57,6 +59,13 @@ public class FragmentB extends BaseFragment<FbPresenter> implements FbView {
     protected void initInject(ActivityComponent mainComponent) {
 
         mainComponent.Inject(this);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        unbinder = ButterKnife.bind(this, inflater.inflate(setLayout(),null));
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
@@ -86,6 +95,12 @@ public class FragmentB extends BaseFragment<FbPresenter> implements FbView {
             }
         });
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
 }

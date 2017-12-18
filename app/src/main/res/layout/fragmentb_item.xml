@@ -14,6 +14,8 @@
         android:layout_height="170dp" />
     <TextView
         android:id="@+id/tv_classify"
+        android:textSize="18sp"
+        android:textStyle="bold"
         android:text="1111"
         android:gravity="center"
         android:textColor="#fff"

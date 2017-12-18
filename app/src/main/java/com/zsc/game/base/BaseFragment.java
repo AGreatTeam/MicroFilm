@@ -58,12 +58,6 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        unbinder.unbind();
-    }
-
-    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         processLogic();
