@@ -1,17 +1,15 @@
 package com.zsc.game.app;
 import android.app.Application;
+
 import com.zsc.game.base.BaseApplication;
 import com.zsc.game.di.component.AppComponent;
 import com.zsc.game.di.component.DaggerAppComponent;
 import com.zsc.game.di.module.AppModule;
 import com.zsc.game.di.module.GlobalConfigModule;
-import com.zsc.game.di.module.MainModule;
 import com.zsc.game.util.SystemUtils;
 
-import java.io.File;
 import java.io.IOException;
 
-import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
@@ -33,6 +31,8 @@ public class MApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
+
        mApplication=this;
        //缓存拦截器
        /* File cacheFile = new File(PATH);

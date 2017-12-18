@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 
 import com.zsc.game.app.MApplication;
 import com.zsc.game.di.component.ActivityComponent;
-
 import com.zsc.game.di.module.MainModule;
 
 import javax.inject.Inject;
@@ -33,8 +32,6 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Nullable
@@ -44,9 +41,9 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         if(view==null)
         {
             view = inflater.inflate(setLayout(),container,false);
-            ButterKnife.bind(getActivity());
+            addLayout();
+            ButterKnife.bind(this, view);
         }
-
         initInject(ininComponent());
         if(mPresenter!=null)
         {
@@ -82,5 +79,13 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
     protected ActivityComponent ininComponent()
     {
         return  MApplication.appComponent.plus(new MainModule());
+    }
+
+    protected  abstract void addLayout();
+
+    @SuppressWarnings("unchecked")
+    protected <T extends View> T findViewById(int id)
+    {if (view == null) {return null;}
+        return (T) view.findViewById(id);
     }
 }

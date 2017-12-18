@@ -27,6 +27,7 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity {
 
 
+
     @Inject
     protected P mPresenter;
 

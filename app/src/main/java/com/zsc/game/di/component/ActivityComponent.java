@@ -3,6 +3,7 @@ package com.zsc.game.di.component;
 import com.zsc.game.ui.activity.Main2Activity;
 import com.zsc.game.di.module.MainModule;
 import com.zsc.game.di.module.YourScope;
+import com.zsc.game.ui.activity.Main3Activity;
 import com.zsc.game.ui.fragment.FragmentA;
 import com.zsc.game.ui.fragment.FragmentB;
 import com.zsc.game.ui.fragment.FragmentC;
@@ -33,5 +34,7 @@ public interface ActivityComponent {
    void Inject(FragmentB fragmentB);
    void Inject(FragmentC fragmentC);
    void Inject(FragmentD fragmentD);
+
+   void Injext(Main3Activity main3Activity);
 
 }

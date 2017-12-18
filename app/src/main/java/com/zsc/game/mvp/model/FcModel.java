@@ -1,6 +1,7 @@
 package com.zsc.game.mvp.model;
 
 import com.zsc.game.base.BaseModel;
+import com.zsc.game.mvp.model.bean.VideoInfo;
 import com.zsc.game.mvp.model.service.ApiService;
 
 import javax.inject.Inject;
@@ -23,7 +24,7 @@ public class FcModel implements BaseModel {
     public FcModel() {
     }
 
-    public Flowable<String> loadData()
+    public Flowable<VideoInfo> loadData()
     {
         return  retrofit.create(ApiService.class).getData();
     }
