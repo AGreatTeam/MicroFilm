@@ -5,8 +5,12 @@
       <module fileurl="file://$PROJECT_DIR$/MicroFilm.iml" filepath="$PROJECT_DIR$/MicroFilm.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://C:\Users\lenovo\Desktop\MicroFilm\common\common.iml" filepath="C:\Users\lenovo\Desktop\MicroFilm\common\common.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonwidget/commonwidget.iml" filepath="$PROJECT_DIR$/commonwidget/commonwidget.iml" />
+      <module fileurl="file://C:\Users\lenovo\Desktop\MicroFilm\commonwidget\commonwidget.iml" filepath="C:\Users\lenovo\Desktop\MicroFilm\commonwidget\commonwidget.iml" />
       <module fileurl="file://$PROJECT_DIR$/panowidget/panowidget.iml" filepath="$PROJECT_DIR$/panowidget/panowidget.iml" />
+      <module fileurl="file://C:\Users\lenovo\Desktop\MicroFilm\panowidget\panowidget.iml" filepath="C:\Users\lenovo\Desktop\MicroFilm\panowidget\panowidget.iml" />
+      <module fileurl="file://$PROJECT_DIR$/videowidget/videowidget.iml" filepath="$PROJECT_DIR$/videowidget/videowidget.iml" />
     </modules>
   </component>
 </project>

@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dou361.ijkplayer.widget.IjkVideoView;
 import com.dou361.ijkplayer.widget.PlayStateParams;
@@ -139,16 +140,20 @@ public class DetailActivity extends BaseActivity<ShiPinPresenter> implements Shi
 
     @Override
     public void getShipin(ShipinContentInfo.RetBean retBean) {
-        tvDirector.setText("导演："+retBean.getDirector());
-        actors.setText("主演："+retBean.getActors());
-        tvDes.setText("简介："+retBean.getDescription());
-        new PlayerView(this)
-                .setTitle(retBean.getTitle())
-                .setScaleType(PlayStateParams.fitparent)
-                .hideMenu(true)
-                .forbidTouch(false)
-                .setPlaySource(retBean.getHDURL())
-                .startPlay();
+        if (!retBean.getHDURL().equals("")){
+            tvDirector.setText("导演："+retBean.getDirector());
+            actors.setText("主演："+retBean.getActors());
+            tvDes.setText("简介："+retBean.getDescription());
+            new PlayerView(this)
+                    .setTitle(retBean.getTitle())
+                    .setScaleType(PlayStateParams.fitparent)
+                    .hideMenu(true)
+                    .forbidTouch(false)
+                    .setPlaySource(retBean.getHDURL())
+                    .startPlay();
+        }else
+            Toast.makeText(this, "无效的播放地址", Toast.LENGTH_SHORT).show();
+
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
