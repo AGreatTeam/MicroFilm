@@ -37,25 +37,32 @@ public class LSAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        RecyclerView.ViewHolder viewHolder = null;
+
         if(viewType==0)
         {
+
             View view=LayoutInflater.from(context).inflate(R.layout.ls_item,parent,false);
-            viewHolder=new MyViewHolder(view);
+            final RecyclerView.ViewHolder viewHolder=new MyViewHolder(view);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    click.OnItemClick(viewHolder.getAdapterPosition());
+                }
+            });
+            return viewHolder;
         }
 
-        return viewHolder;
+        return null;
+
+
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
            if(holder instanceof MyViewHolder)
            {
-
-                  Glide.with(context).load(list.get(position).getPic()).into(((MyViewHolder) holder).image);
-                   ((MyViewHolder) holder).tv.setText(list.get(position).getTitle());
-
-
+                  Glide.with(context).load(list.get(list.size()-(position+1)).getPic()).into(((MyViewHolder) holder).image);
+                   ((MyViewHolder) holder).tv.setText(list.get(list.size()-(position+1)).getTitle());
            }
     }
 
@@ -79,5 +86,16 @@ public class LSAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             image=itemView.findViewById(R.id.image);
             tv=itemView.findViewById(R.id.tv);
         }
+    }
+
+    private MyItemClick click;
+    public void setMyItemClick(MyItemClick click)
+    {
+        this.click=click;
+    }
+    public interface MyItemClick
+    {
+        void OnItemClick(int position);
+
     }
 }

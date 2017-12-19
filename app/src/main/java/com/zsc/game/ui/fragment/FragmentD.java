@@ -86,19 +86,22 @@ public class FragmentD extends BaseFragment<FdPresenter> implements FdView {
    public void  loadData()
    {
        List<ShipinContentInfo.RetBean> objects = DaoUtils.selectAll();
+       Log.i("xxxa","数据"+objects.size());
        if(objects.size()>0)
        {
            recyclerView.setVisibility(View.VISIBLE);
            recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
-           if(lsAdapter==null)
-           {
+
                lsAdapter = new LSAdapter(getContext(),objects);
                recyclerView.setAdapter(lsAdapter);
-           }else
-           {
-               lsAdapter.notifyDataSetChanged();
-           }
-           Log.i("xxxz","走了"+objects.size());
+               lsAdapter.setMyItemClick(new LSAdapter.MyItemClick() {
+                   @Override
+                   public void OnItemClick(int position) {
+                       Log.i("xxx","position"+position);
+                   }
+               });
+           
+
        }
 
    }
