@@ -96,7 +96,9 @@ public class FragmentB extends BaseFragment<FbPresenter> implements FbView {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
+        if(unbinder != null){
+            unbinder.unbind();
+        }
     }
 
 }

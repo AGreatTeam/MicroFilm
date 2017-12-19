@@ -10,6 +10,7 @@ import com.zsc.game.ui.fragment.FragmentA;
 import com.zsc.game.ui.fragment.FragmentB;
 import com.zsc.game.ui.fragment.FragmentC;
 import com.zsc.game.ui.fragment.FragmentD;
+import com.zsc.game.ui.fragment.VRvideoFragment;
 
 
 import dagger.Subcomponent;
@@ -37,5 +38,6 @@ public interface ActivityComponent {
     void Inject(WelcomeActivity welcomeActivity);
    void Inject(Main3Activity activity);
     void Inject(ClassifyListActivity activity);
+    void Injext(VRvideoFragment vRvideoFragment);
 
 }

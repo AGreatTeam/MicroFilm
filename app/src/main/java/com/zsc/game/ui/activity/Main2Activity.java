@@ -1,6 +1,10 @@
 package com.zsc.game.ui.activity;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -14,6 +18,7 @@ import com.zsc.game.ui.fragment.FragmentA;
 import com.zsc.game.ui.fragment.FragmentB;
 import com.zsc.game.ui.fragment.FragmentC;
 import com.zsc.game.ui.fragment.FragmentD;
+import com.zsc.game.widget.ResideLayout;
 import com.zsc.game.widget.UnScrollViewPager;
 import com.zsc.game.widget.theme.ColorRelativeLayout;
 
@@ -21,9 +26,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
-public class Main2Activity extends BaseActivity<MainPresenter> implements MainView {
+public class Main2Activity extends BaseActivity<MainPresenter> implements MainView{
 
 
     @BindView(R.id.crl_cehua)
@@ -42,6 +48,10 @@ public class Main2Activity extends BaseActivity<MainPresenter> implements MainVi
     RadioGroup tabRgMenu;
     @BindView(R.id.crl_zhu)
     ColorRelativeLayout crlZhu;
+    @BindView(R.id.b1)
+    Button b1;
+    @BindView(R.id.cehua)
+    ResideLayout cehua;
     private ContentPagerAdapter mPagerAdapter;
 
     @Override
@@ -79,26 +89,41 @@ public class Main2Activity extends BaseActivity<MainPresenter> implements MainVi
             }
         });
 
+        /**
+         * VR虚拟世界即将开启
+         * */
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Main2Activity.this,DummyActivity.class));
+            }
+        });
+
     }
-    private List<Fragment> initFragments()
-    {
-        List<Fragment> list=new ArrayList<>();
+
+    private List<Fragment> initFragments() {
+        List<Fragment> list = new ArrayList<>();
         list.add(new FragmentA());
         list.add(new FragmentB());
         list.add(new FragmentC());
         list.add(new FragmentD());
-        return  list;
+        return list;
     }
-
     @Override
     protected void initInject(ActivityComponent mainComponent) {
         mainComponent.Inject(this);
     }
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
+
 
     @Override
     public void showToast(String msg) {
-
     }
 }
