@@ -1,16 +1,10 @@
 package com.zsc.game.base;
 
-import android.app.Activity;
 import android.app.Application;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Bundle;
-import android.util.Log;
-
 
 import com.zsc.game.greendao.DaoMaster;
 import com.zsc.game.greendao.DaoSession;
-
-import java.util.Date;
 
 /**
  * 类的用途：可以再此配置
