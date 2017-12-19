@@ -2,7 +2,6 @@ package com.zsc.game.ui.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -11,20 +10,20 @@ import android.widget.Toast;
 
 import com.zsc.game.R;
 import com.zsc.game.base.BaseActivity;
-import com.zsc.game.base.BasePresenter;
+import com.zsc.game.base.BaseView;
 import com.zsc.game.di.component.ActivityComponent;
+import com.zsc.game.mvp.model.bean.ShipinContentInfo;
 import com.zsc.game.mvp.model.bean.VideoDetail;
-import com.zsc.game.mvp.presenter.SzlVideoDetailPresenter;
-import com.zsc.game.mvp.view.SzlVideoDetailView;
+import com.zsc.game.mvp.presenter.ShiPinPresenter;
+import com.zsc.game.mvp.view.ShiPinView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by 苏照亮 2017/12/19.
  */
 
-public class VideoDetailActivity extends BaseActivity<SzlVideoDetailPresenter> implements SzlVideoDetailView {
+public class VideoDetailActivity extends BaseActivity<ShiPinPresenter> implements ShiPinView {
 
     @BindView(R.id.goback)
     ImageView goback;
@@ -56,7 +55,7 @@ public class VideoDetailActivity extends BaseActivity<SzlVideoDetailPresenter> i
         goback.setVisibility(View.GONE);
         settv.setVisibility(View.GONE);
         if (videoInfo != null) {
-            Toast.makeText(this, videoInfo.title, Toast.LENGTH_SHORT).show();
+            mPresenter.getLoadShipin(videoInfo.dataId);
             titleBarName.setText(videoInfo.title);
         }
     }
@@ -65,5 +64,10 @@ public class VideoDetailActivity extends BaseActivity<SzlVideoDetailPresenter> i
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    @Override
+    public void getShipin(ShipinContentInfo.RetBean retBean) {
+
     }
 }

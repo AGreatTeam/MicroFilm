@@ -23,7 +23,8 @@
 
             <com.zsc.game.widget.SwipeCardView
                 android:id="@+id/scw"
-                app:yOffsetStep="10dp"
+                app:yOffsetStep="20dp"
+                app:scaleOffsetStep="0.05"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

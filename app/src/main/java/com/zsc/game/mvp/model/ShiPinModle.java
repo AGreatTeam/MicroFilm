@@ -1,5 +1,6 @@
 package com.zsc.game.mvp.model;
 
+import com.zsc.game.di.module.Me;
 import com.zsc.game.mvp.model.bean.ShipinContentInfo;
 import com.zsc.game.mvp.model.service.ApiService;
 
@@ -16,7 +17,9 @@ public class ShiPinModle  {
 
     @Inject
     public ShiPinModle() {
+
     }
+    @Me
     @Inject
     Retrofit retrofit;
 

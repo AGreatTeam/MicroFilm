@@ -1,6 +1,7 @@
 package com.zsc.game.mvp.model;
 
 import com.zsc.game.base.BaseModel;
+import com.zsc.game.di.module.Me;
 import com.zsc.game.mvp.model.service.ApiService;
 
 import javax.inject.Inject;
@@ -17,6 +18,7 @@ import retrofit2.Retrofit;
 
 public class FbModel implements BaseModel {
 
+    @Me
     @Inject
     Retrofit retrofit;
     @Inject

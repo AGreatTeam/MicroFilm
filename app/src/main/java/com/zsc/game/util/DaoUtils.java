@@ -25,7 +25,7 @@ public class DaoUtils {
      * @param mClass
      * @param
      */
-    public static  void insert(Object mClass)
+    public static  void insert(ShipinContentInfo.RetBean mClass)
     {
         Gson gson=new Gson();
         String json=gson.toJson(mClass);
@@ -52,18 +52,18 @@ public class DaoUtils {
      * 查询所有播放历史
      * @return
      */
-    public static List<Object> selectAll()
+    public static List<ShipinContentInfo.RetBean> selectAll()
     {
         List<Data> list = BaseApplication.daoSession.getDataDao().queryBuilder().list();
 
-        List<Object> lists=new ArrayList<>();
+        List<ShipinContentInfo.RetBean> lists=new ArrayList<>();
 
         Gson gson=new Gson();
 
         for (int i=0;i<list.size();i++)
         {
            String json=list.get(i).getJson();
-           lists.add(gson.fromJson(json, ShipinContentInfo.class));
+           lists.add(gson.fromJson(json, ShipinContentInfo.RetBean.class));
         }
        return  lists;
     }
