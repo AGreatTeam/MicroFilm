@@ -2,6 +2,7 @@ package com.zsc.game.mvp.model;
 
 import com.zsc.game.base.BaseModel;
 import com.zsc.game.mvp.model.bean.VideoCatagory;
+import com.zsc.game.mvp.model.bean.VideoInfo;
 import com.zsc.game.mvp.model.service.ApiService;
 
 import javax.inject.Inject;
@@ -18,7 +19,6 @@ import retrofit2.Retrofit;
 
 public class FcModel implements BaseModel {
 
-    private static final String TAG = "FragmentC";
     @Inject
     Retrofit retrofit;
     @Inject

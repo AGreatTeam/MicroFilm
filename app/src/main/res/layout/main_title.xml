@@ -1,0 +1,13 @@
+<com.zcy.ghost.vivideo.widget.theme.ColorRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title"
+    android:layout_width="match_parent"
+    android:layout_height="68dp"
+    android:background="?attr/colorPrimary"
+    android:paddingTop="20dp">
+
+    <com.zcy.ghost.vivideo.widget.theme.ColorTextView
+        android:id="@+id/title_name"
+        style="@style/title_tv_style"
+        android:layout_width="match_parent"
+        />
+</com.zcy.ghost.vivideo.widget.theme.ColorRelativeLayout>

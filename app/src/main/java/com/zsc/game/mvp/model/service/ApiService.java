@@ -2,8 +2,10 @@ package com.zsc.game.mvp.model.service;
 
 import com.zsc.game.mvp.model.bean.VideoCatagory;
 
+import com.zsc.game.mvp.model.bean.ShipinContentInfo;
+import com.zsc.game.mvp.model.bean.VideoInfo;
+
 import io.reactivex.Flowable;
-import okhttp3.ResponseBody;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -28,4 +30,9 @@ public interface ApiService {
      */
     @GET("front/columns/getVideoList.do")
     Flowable<VideoCatagory> getVideoList(@Query("catalogId") String catalogId, @Query("pnum") String pnum);
+    @GET("front/videoDetailApi/videoDetail.do")
+    Flowable<ShipinContentInfo> getLoadShiPin(@Query("mediaId") String id);
+    //第二个页面fragmennt
+    @GET("front/homePageApi/homePage.do")
+    Flowable<VideoInfo> getData1();
 }

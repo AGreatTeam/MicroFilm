@@ -1,14 +1,11 @@
 package com.zsc.game.ui.fragment;
 
 import android.content.Intent;
-import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.daprlabs.cardstack.SwipeFrameLayout;
 import com.zsc.game.R;
 import com.zsc.game.base.BaseFragment;
 import com.zsc.game.di.component.ActivityComponent;
@@ -20,12 +17,10 @@ import com.zsc.game.ui.activity.VideoDetailActivity;
 import com.zsc.game.widget.SwipeCardView;
 import com.zsc.game.ui.adapter.SwipeDeckAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 /**
  * 类的用途：
@@ -61,6 +56,11 @@ public class FragmentC extends BaseFragment<FcPresenter> implements FcView {
     protected void initInject(ActivityComponent mainComponent) {
 
         mainComponent.Inject(this);
+    }
+
+    @Override
+    protected void addLayout() {
+
     }
 
     @Override

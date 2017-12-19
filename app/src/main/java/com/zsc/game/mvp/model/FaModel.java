@@ -1,6 +1,7 @@
 package com.zsc.game.mvp.model;
 
 import com.zsc.game.base.BaseModel;
+import com.zsc.game.mvp.model.bean.VideoInfo;
 import com.zsc.game.mvp.model.service.ApiService;
 
 import javax.inject.Inject;
@@ -19,12 +20,13 @@ public class FaModel implements BaseModel {
 
     @Inject
     Retrofit retrofit;
+
     @Inject
     public FaModel() {
     }
 
-    public Flowable<String> loadData()
+    public Flowable<VideoInfo> loadData()
     {
-        return  retrofit.create(ApiService.class).getData();
+        return  retrofit.create(ApiService.class).getData1();
     }
 }

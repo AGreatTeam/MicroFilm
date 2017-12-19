@@ -1,5 +1,6 @@
 package com.zsc.game.app;
 import android.app.Application;
+
 import com.zsc.game.base.BaseApplication;
 import com.zsc.game.di.component.AppComponent;
 import com.zsc.game.di.component.DaggerAppComponent;
@@ -30,6 +31,8 @@ public class MApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
+
        mApplication=this;
        //缓存拦截器
        /* File cacheFile = new File(PATH);

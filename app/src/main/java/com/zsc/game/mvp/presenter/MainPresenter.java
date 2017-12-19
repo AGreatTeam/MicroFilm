@@ -6,16 +6,11 @@ import com.zsc.game.base.BasePresenter;
 import com.zsc.game.mvp.model.CModel;
 import com.zsc.game.mvp.view.MainView;
 
-import java.io.IOException;
-
 import javax.inject.Inject;
 
-import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.DisposableSubscriber;
-import okhttp3.ResponseBody;
-import retrofit2.Retrofit;
 
 /**
  * 类的用途：
@@ -32,36 +27,33 @@ public class MainPresenter extends BasePresenter<CModel,MainView> {
     }
 
     public void loadata()
-     {
-         model.loadData()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSubscriber<String>() {
-                    @Override
-                    public void onNext(String responseBody) {
-                        try {
-                            //String json=responseBody.string();
-                            Log.i("xxx","我的数据"+responseBody);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+     { model.loadData()
+             .subscribeOn(Schedulers.io())
+             .observeOn(AndroidSchedulers.mainThread())
+             .subscribeWith(new DisposableSubscriber<String>() {
+                 @Override
+                 public void onNext(String responseBody) {
+                     try {
+                         //String json=responseBody.string();
+                         Log.i("xxx","我的数据"+responseBody);
+                     } catch (Exception e) {
+                         e.printStackTrace();
+                     }
+                     getView().showToast(responseBody);
+                 }
 
-                        getView().showToast("成功");
-                    }
+                 @Override
+                 public void onError(Throwable t) {
 
-                    @Override
-                    public void onError(Throwable t) {
+                 }
 
-                    }
+                 @Override
+                 public void onComplete() {
 
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+                 }
+             });
 
      }
-
 
 
 }
