@@ -2,10 +2,13 @@ package com.zsc.game.base;
 
 import android.app.Activity;
 import android.app.Application;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 
 
+import com.zsc.game.greendao.DaoMaster;
+import com.zsc.game.greendao.DaoSession;
 
 import java.util.Date;
 
@@ -19,6 +22,7 @@ import java.util.Date;
 
 public class BaseApplication extends Application {
 
+    public static DaoSession daoSession;
     private long time = -2;
     public int count = 0;
 
@@ -100,6 +104,24 @@ public class BaseApplication extends Application {
 
             }
         });*/
+
+        //配置数据库
+        setupDatabase();
+    }
+
+
+    /**
+     * 配置数据库
+     */
+    private void setupDatabase() {
+        //创建数据库shop.db"
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "shop.db", null);
+        //获取可写数据库
+        SQLiteDatabase db = helper.getWritableDatabase();
+        //获取数据库对象
+        DaoMaster daoMaster = new DaoMaster(db);
+        //获取Dao对象管理者
+        daoSession = daoMaster.newSession();
     }
 
 
