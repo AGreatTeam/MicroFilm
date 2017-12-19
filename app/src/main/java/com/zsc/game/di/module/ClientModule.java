@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.util.concurrent.TimeUnit;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -26,6 +27,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 @Module
 public class ClientModule {
 
+
     public static final int TIMEOUT=10;
 
     @Provides
@@ -43,6 +45,7 @@ public class ClientModule {
         return  new OkHttpClient.Builder();
     }
 
+    @Me
     @Provides
     @Singleton
     public Retrofit provideRetrofit(Retrofit.Builder retrofitBuilder, OkHttpClient okHttpClient, String url)
@@ -57,6 +60,20 @@ public class ClientModule {
         return  retrofitBuilder.build();
     }
 
+    @My
+    @Provides
+    @Singleton
+    public Retrofit provideRetrofit2(Retrofit.Builder retrofitBuilder, OkHttpClient okHttpClient)
+    {
+        retrofitBuilder
+                .baseUrl("http://api.svipmovie.com/")
+                .client(okHttpClient)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create());
+
+        return  retrofitBuilder.build();
+    }
 
     @Provides
     @Singleton
