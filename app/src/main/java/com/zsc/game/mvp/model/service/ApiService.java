@@ -35,4 +35,9 @@ public interface ApiService {
     //第二个页面fragmennt
     @GET("front/homePageApi/homePage.do")
     Flowable<VideoInfo> getData1();
+
+    /**
+     * VR视频数据
+     * */
+
 }

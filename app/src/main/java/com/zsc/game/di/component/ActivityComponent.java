@@ -1,17 +1,17 @@
 package com.zsc.game.di.component;
 
+import com.zsc.game.di.module.MainModule;
+import com.zsc.game.di.module.YourScope;
 import com.zsc.game.ui.activity.ClassifyListActivity;
 import com.zsc.game.ui.activity.DetailActivity;
 import com.zsc.game.ui.activity.Main2Activity;
-import com.zsc.game.di.module.MainModule;
-import com.zsc.game.di.module.YourScope;
 import com.zsc.game.ui.activity.Main3Activity;
 import com.zsc.game.ui.activity.WelcomeActivity;
 import com.zsc.game.ui.fragment.FragmentA;
 import com.zsc.game.ui.fragment.FragmentB;
 import com.zsc.game.ui.fragment.FragmentC;
 import com.zsc.game.ui.fragment.FragmentD;
-
+import com.zsc.game.ui.fragment.VRvideoFragment;
 
 import dagger.Subcomponent;
 
@@ -39,5 +39,6 @@ public interface ActivityComponent {
     void Inject(Main3Activity activity);
     void Inject(ClassifyListActivity activity);
     void Inject(DetailActivity activity);
+    void Injext(VRvideoFragment vRvideoFragment);
 
 }

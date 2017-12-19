@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/qwe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/qwe">
+    >
+    <RelativeLayout
+        android:id="@+id/relative1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/title_bar"></include>
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/id_swipe"
+            >
+            <com.jcodecraeer.xrecyclerview.XRecyclerView
+                android:id="@+id/sift_xr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </com.jcodecraeer.xrecyclerview.XRecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
 
-    <include layout="@layout/title_bar"></include>
+    </RelativeLayout>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/id_swipe"
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.jcodecraeer.xrecyclerview.XRecyclerView
-            android:id="@+id/sift_xr"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></com.jcodecraeer.xrecyclerview.XRecyclerView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+                <TextView
+                    android:id="@+id/xiexie"
+                    android:textSize="18sp"
+                    android:textColor="#ffffff"
+                    android:text="无网络,请检查您的网络，谢谢合作，哈尼亚谁由"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp" />
+    </RelativeLayout>
+
 </RelativeLayout>
