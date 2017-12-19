@@ -87,9 +87,8 @@ public class FragmentC extends BaseFragment<FcPresenter> implements FcView {
     @Override
     public void onSuccess(final VideoCatagory catagory) {
         if (catagory != null) {
-            swipeDeck.setVisibility(View.VISIBLE);
-            tvNomore.setVisibility(View.GONE);
             list = catagory.ret.list;
+            swipeDeck.setVisibility(View.VISIBLE);
             if (adapter == null) {
                 adapter = new SwipeDeckAdapter(list, getContext());
                 swipeDeck.setAdapter(adapter);
@@ -101,16 +100,6 @@ public class FragmentC extends BaseFragment<FcPresenter> implements FcView {
 
                     @Override
                     public void onCardVanish(int index, SwipeCardView.SlideType type) {
-                        if (index == list.size()-1){
-                            swipeDeck.setVisibility(View.GONE);
-                            tvNomore.setVisibility(View.VISIBLE);
-                            tvNomore.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    mPresenter.loadata();
-                                }
-                            });
-                        }
                     }
 
                     @Override
@@ -135,7 +124,7 @@ public class FragmentC extends BaseFragment<FcPresenter> implements FcView {
         Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
     }
 
-    @OnClick({R.id.btn_next, R.id.tv_nomore})
+    @OnClick(R.id.btn_next)
     public void onViewClicked() {
         mPresenter.loadata();
     }

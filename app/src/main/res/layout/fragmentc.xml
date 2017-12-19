@@ -18,8 +18,7 @@
             android:layout_gravity="center"
             android:text="没有了，点击换下一批"
             android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:visibility="gone" />
+            android:textSize="14sp" />
 
             <com.zsc.game.widget.SwipeCardView
                 android:id="@+id/scw"
