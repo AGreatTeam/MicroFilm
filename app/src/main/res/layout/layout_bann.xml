@@ -29,6 +29,7 @@
         android:layout_marginLeft="5dp"
         />
     <TextView
+        android:textColor="@color/white"
         android:id="@+id/jctj"
         android:layout_below="@id/mybanner"
         android:layout_width="wrap_content"

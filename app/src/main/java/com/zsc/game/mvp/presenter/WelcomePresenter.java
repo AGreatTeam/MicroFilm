@@ -4,8 +4,6 @@ import com.zsc.game.base.BasePresenter;
 import com.zsc.game.mvp.model.WelcomeModel;
 import com.zsc.game.mvp.view.WelcomeView;
 
-import org.reactivestreams.Subscription;
-
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -35,15 +33,11 @@ public class WelcomePresenter extends BasePresenter<WelcomeModel, WelcomeView> {
                     public void onNext(Long aLong) {
                         getView().jumpToMain();
                     }
-
                     @Override
                     public void onError(Throwable e) {
-
                     }
-
                     @Override
                     public void onComplete() {
-
                     }
                 });
     }

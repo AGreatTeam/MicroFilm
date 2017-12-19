@@ -1,6 +1,7 @@
 package com.zsc.game.mvp.model;
 
 import com.zsc.game.base.BaseModel;
+import com.zsc.game.mvp.model.bean.VideoCatagory;
 import com.zsc.game.di.module.Me;
 import com.zsc.game.mvp.model.bean.VideoInfo;
 import com.zsc.game.mvp.model.service.ApiService;
@@ -26,8 +27,9 @@ public class FcModel implements BaseModel {
     public FcModel() {
     }
 
-    public Flowable<VideoInfo> loadData()
+    public Flowable<VideoCatagory> loadData(String catalogId, String pnum)
     {
-        return  retrofit.create(ApiService.class).getData1();
+        return  retrofit.create(ApiService.class).getVideoList(catalogId, pnum);
     }
+
 }

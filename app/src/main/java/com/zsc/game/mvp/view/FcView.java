@@ -1,6 +1,7 @@
 package com.zsc.game.mvp.view;
 
 import com.zsc.game.base.BaseView;
+import com.zsc.game.mvp.model.bean.VideoCatagory;
 
 /**
  * 类的用途：
@@ -12,5 +13,7 @@ import com.zsc.game.base.BaseView;
 public interface FcView extends BaseView {
 
     void showToast(String msg);
+    void onSuccess(VideoCatagory catagory);
+    void onError(String msg);
 
 }

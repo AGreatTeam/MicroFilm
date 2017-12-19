@@ -25,18 +25,16 @@ import okhttp3.Response;
 
 public class MApplication extends BaseApplication {
     public final String URL="http://api.svipmovie.com/";
-  //  public final String  PATH=  Environment.getExternalStorageDirectory().getAbsolutePath()+",MyCache";
+    public final  String URL1 = "http://api.youkes.com:8081";
+
+  //public final String  PATH=  Environment.getExternalStorageDirectory().getAbsolutePath()+",MyCache";
     public static AppComponent appComponent;
     public static Application mApplication;
     @Override
     public void onCreate() {
         super.onCreate();
-
-
        mApplication=this;
        //缓存拦截器
-       /* File cacheFile = new File(PATH);
-        Cache cache = new Cache(cacheFile, 1024 * 1024 * 50);*/
         Interceptor interceptor=new Interceptor() {
            @Override
            public Response intercept(Chain chain) throws IOException {
@@ -67,8 +65,6 @@ public class MApplication extends BaseApplication {
                return response;
            }
        };
-
-        //
         appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(this.getApplicationContext()))
                 .globalConfigModule(new GlobalConfigModule.Builder()

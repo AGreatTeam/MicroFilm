@@ -41,16 +41,13 @@ public class FbPresenter extends BasePresenter<FbModel,FbView> {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-
                          getView().showToast(responseBody);
 
                     }
-
                     @Override
                     public void onError(Throwable t) {
 
                     }
-
                     @Override
                     public void onComplete() {
 

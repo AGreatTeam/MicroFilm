@@ -12,8 +12,57 @@
         android:id="@+id/crl_cehua"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#f00"
-        ></com.zsc.game.widget.theme.ColorRelativeLayout>
+        >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                            <ImageView
+                                android:layout_marginTop="50dp"
+                                android:layout_marginLeft="50dp"
+                                android:background="@color/black"
+                                android:text="28651865"
+                                android:layout_width="100dp"
+                                android:layout_height="80dp" />
+                                <Button
+                                    android:id="@+id/b1"
+                                    android:text="福利"
+                                    android:layout_marginLeft="50dp"
+                                    android:layout_marginTop="50dp"
+                                    android:layout_width="100dp"
+                                    android:layout_height="50dp" />
+                    <Button
+                        android:id="@+id/b2"
+                        android:text="福利"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp" />
+                    <Button
+                        android:id="@+id/b3"
+                        android:text="福利"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp" />
+                    <Button
+                        android:id="@+id/b4"
+                        android:text="福利"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp" />
+                    <Button
+                        android:id="@+id/b5"
+                        android:text="福利"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp" />
+
+                </LinearLayout>
+    </com.zsc.game.widget.theme.ColorRelativeLayout>
 
         <com.zsc.game.widget.theme.ColorRelativeLayout
             android:id="@+id/crl_zhu"
