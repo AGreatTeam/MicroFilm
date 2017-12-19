@@ -27,6 +27,7 @@ import com.zsc.game.di.component.ActivityComponent;
 import com.zsc.game.mvp.model.bean.VideoInfo;
 import com.zsc.game.mvp.presenter.FaPresenter;
 import com.zsc.game.mvp.view.FaView;
+import com.zsc.game.ui.activity.SousuoActivity;
 import com.zsc.game.ui.adapter.HomeAdapter;
 import com.zsc.game.util.SystemUtil;
 
@@ -124,6 +125,10 @@ public class FragmentA extends BaseFragment<FaPresenter> implements FaView, Swip
         goback.setVisibility(View.GONE);
         settv.setVisibility(View.GONE);
         mybanner = abnv.findViewById(R.id.mybanner);
+        /**
+         * 查找头部相对应的控件
+         * */
+        TextView tv = abnv.findViewById(R.id.edit_sou);
         titleBarLayout.bringToFront();
         siftXr1.addHeaderView(abnv);
         siftXr1.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -151,6 +156,15 @@ public class FragmentA extends BaseFragment<FaPresenter> implements FaView, Swip
             }
         });
         idSwipe.setOnRefreshListener(this);
+        /**
+         * 点击跳转搜索框
+         * */
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().startActivity(new Intent(getActivity(), SousuoActivity.class));
+            }
+        });
     }
     /**
      * recycleview数据展示

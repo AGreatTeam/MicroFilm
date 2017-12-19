@@ -18,7 +18,6 @@ public class VrVideoPresenter extends BasePresenter<VrVideoModel,VrVideoView> {
     @Inject
     public VrVideoPresenter() {
     }
-
     public void getVideoPer(){
         vrVideoModel.getVrVideo();
     }

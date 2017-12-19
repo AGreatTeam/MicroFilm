@@ -74,6 +74,5 @@ public class Main3Activity extends BaseActivity<ShiPinPresenter> implements ShiP
                 .forbidTouch(false)
                 .setPlaySource(retBean.getHDURL())
                 .startPlay();
-
     }
 }
