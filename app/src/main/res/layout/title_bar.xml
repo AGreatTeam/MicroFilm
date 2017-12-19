@@ -19,14 +19,12 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
-
         <LinearLayout
             android:id="@+id/gobackLayout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:paddingTop="15dp">
-
             <ImageView
                 android:id="@+id/goback"
                 android:layout_width="wrap_content"

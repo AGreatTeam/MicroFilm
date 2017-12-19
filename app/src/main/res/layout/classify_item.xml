@@ -13,7 +13,7 @@
         android:layout_marginRight="5dp"
         android:background="#8cffffff"
         android:layout_width="match_parent"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:layout_height="230dp" />
     <TextView
         android:id="@+id/tv_classify"

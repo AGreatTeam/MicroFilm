@@ -6,4 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.zsc.game.ui.activity.VideoDetailActivity">
 
+    <include layout="@layout/title_bar"></include>
+
 </android.support.constraint.ConstraintLayout>
