@@ -11,6 +11,7 @@ import com.zsc.game.di.component.ActivityComponent;
 import com.zsc.game.mvp.model.bean.ShipinContentInfo;
 import com.zsc.game.mvp.presenter.ShiPinPresenter;
 import com.zsc.game.mvp.view.ShiPinView;
+import com.zsc.game.util.DaoUtils;
 import com.zsc.game.util.NetUtils;
 
 public class Main3Activity extends BaseActivity<ShiPinPresenter> implements ShiPinView {
@@ -74,6 +75,9 @@ public class Main3Activity extends BaseActivity<ShiPinPresenter> implements ShiP
                 .forbidTouch(false)
                 .setPlaySource(retBean.getHDURL())
                 .startPlay();
+
+              //播放视频 记录历史 添加数据库
+              DaoUtils.insert(retBean);
 
     }
 }

@@ -35,7 +35,7 @@ public interface ActivityComponent {
     void Inject(FragmentC fragmentC);
     void Inject(FragmentD fragmentD);
     void Inject(WelcomeActivity welcomeActivity);
-   void Inject(Main3Activity activity);
+    void Inject(Main3Activity activity);
     void Inject(ClassifyListActivity activity);
 
 }
