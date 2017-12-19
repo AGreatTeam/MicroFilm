@@ -130,9 +130,18 @@ public class DetailActivity extends BaseActivity<ShiPinPresenter> implements Shi
     ImageView playIcon;
     @BindView(R.id.app_video_box)
     RelativeLayout appVideoBox;
+    @BindView(R.id.tv_des)
+    TextView tvDes;
+    @BindView(R.id.tv_director)
+    TextView tvDirector;
+    @BindView(R.id.actors)
+    TextView actors;
 
     @Override
     public void getShipin(ShipinContentInfo.RetBean retBean) {
+        tvDirector.setText("导演："+retBean.getDirector());
+        actors.setText("主演："+retBean.getActors());
+        tvDes.setText("简介："+retBean.getDescription());
         new PlayerView(this)
                 .setTitle(retBean.getTitle())
                 .setScaleType(PlayStateParams.fitparent)
@@ -168,4 +177,10 @@ public class DetailActivity extends BaseActivity<ShiPinPresenter> implements Shi
         mainComponent.Inject(this);
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }
