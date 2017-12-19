@@ -64,10 +64,9 @@ public class FragmentB extends BaseFragment<FbPresenter> implements FbView {
 
     @Override
     public void showToast(String msg) {
-        Log.i(TAG, "showToast: "+msg);
         Gson gson = new Gson();
         JavaBean bean = gson.fromJson(msg,JavaBean.class);
-        List<JavaBean.RetBean.ListBean> list = bean.getRet().getList();
+        final List<JavaBean.RetBean.ListBean> list = bean.getRet().getList();
         ryView.setLayoutManager(new GridLayoutManager(getActivity(),2));
         FragmentBAdapter adapter = new FragmentBAdapter(getActivity(),list);
         ryView.setAdapter(adapter);
@@ -87,6 +86,7 @@ public class FragmentB extends BaseFragment<FbPresenter> implements FbView {
                 Toast.makeText(getActivity(), "item click index = "+childAdapterPosition, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), ClassifyListActivity.class);
                 intent.putExtra("index",childAdapterPosition);
+                intent.putExtra("title",list.get(childAdapterPosition).getTitle());
                 startActivity(intent);
             }
         });
@@ -96,6 +96,7 @@ public class FragmentB extends BaseFragment<FbPresenter> implements FbView {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+//        unbinder.unbind();
         if(unbinder != null){
             unbinder.unbind();
         }

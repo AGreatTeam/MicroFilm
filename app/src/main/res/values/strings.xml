@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Game</string>
+    <string name="app_name">影舍</string>
+    <!--mine-->
+    <string name="my_record">历史</string>
+    <string name="my_down">缓存</string>
+    <string name="my_collection">收藏</string>
+    <string name="my_them">主题</string>
+    <string name="clean">清除</string>
+    <string name="mine_title">我的</string>
+    <string name="theme_title">主题</string>
 </resources>

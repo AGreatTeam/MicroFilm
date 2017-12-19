@@ -1,10 +1,20 @@
 package com.zsc.game.ui.fragment;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
 import com.zsc.game.R;
 import com.zsc.game.base.BaseFragment;
 import com.zsc.game.di.component.ActivityComponent;
 import com.zsc.game.mvp.presenter.FdPresenter;
 import com.zsc.game.mvp.view.FdView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * 类的用途：
@@ -14,6 +24,8 @@ import com.zsc.game.mvp.view.FdView;
  */
 
 public class FragmentD extends BaseFragment<FdPresenter> implements FdView {
+
+
 
 
     @Override
@@ -41,4 +53,7 @@ public class FragmentD extends BaseFragment<FdPresenter> implements FdView {
     public void showToast(String msg) {
 
     }
+
+
+
 }

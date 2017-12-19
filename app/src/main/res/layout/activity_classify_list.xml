@@ -5,9 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg_colorful"
+    android:orientation="vertical"
     tools:context="com.zsc.game.ui.activity.ClassifyListActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:background="#E31D1A">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="#E31D1A"
+            android:layout_height="15dp"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:text="专题"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <android.support.v7.widget.RecyclerView

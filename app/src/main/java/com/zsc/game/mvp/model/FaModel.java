@@ -20,6 +20,7 @@ public class FaModel implements BaseModel {
 
     @Inject
     Retrofit retrofit;
+
     @Inject
     public FaModel() {
     }

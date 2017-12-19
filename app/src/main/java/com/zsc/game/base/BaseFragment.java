@@ -45,10 +45,11 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         if(view==null)
         {
             view = inflater.inflate(setLayout(),container,false);
-            ButterKnife.bind(this, view);
+
             unbinder = ButterKnife.bind(this, view);
           //  ButterKnife.bind(getActivity());
         }
+
         initInject(ininComponent());
         if(mPresenter!=null)
         {

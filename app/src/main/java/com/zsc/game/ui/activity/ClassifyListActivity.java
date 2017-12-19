@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -27,15 +29,22 @@ public class ClassifyListActivity extends BaseActivity<MainPresenter> implements
 
     @BindView(R.id.ry_view)
     RecyclerView ryView;
+    @BindView(R.id.tv_title)
+    TextView tvTitle;
     @BindView(R.id.swipe_refresh_layout)
     SwipeRefreshLayout swipeRefreshLayout;
     private int index;
+    private Intent intent;
 
     @Override
     public void showToast(String msg) {
+        Log.i("showToast", "showToast: "+msg);
+        intent = getIntent();
+        index = intent.getIntExtra("index", 0);
+        tvTitle.setText(intent.getStringExtra("title"));
         Gson gson = new Gson();
         JavaBean bean = gson.fromJson(msg,JavaBean.class);
-        List<JavaBean.RetBean.ListBean.ChildListBean> list = bean.getRet().getList().get(index).getChildList();
+        final List<JavaBean.RetBean.ListBean.ChildListBean> list = bean.getRet().getList().get(index).getChildList();
         ClassifyListAdapter adapter = new ClassifyListAdapter(this,list);
         ryView.setLayoutManager(new GridLayoutManager(this,3));
         ryView.setAdapter(adapter);
@@ -52,16 +61,16 @@ public class ClassifyListActivity extends BaseActivity<MainPresenter> implements
             @Override
             public void onItemClick(View view) {
                 int childAdapterPosition = ryView.getChildAdapterPosition(view);
-                Toast.makeText(ClassifyListActivity.this, "item click index = "+childAdapterPosition, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ClassifyListActivity.this,DetailActivity.class);
+                intent.putExtra("id",list.get(childAdapterPosition).getDataId());
+                intent.putExtra("title",list.get(childAdapterPosition).getTitle());
+                startActivity(intent);
             }
         });
     }
 
     @Override
     protected int setLayout() {
-        Intent intent = getIntent();
-        index = intent.getIntExtra("index", 0);
-        Toast.makeText(this, "index:" + index, Toast.LENGTH_SHORT).show();
         return R.layout.activity_classify_list;
     }
 
