@@ -6,6 +6,7 @@ import com.zsc.game.ui.activity.ClassifyListActivity;
 import com.zsc.game.ui.activity.DetailActivity;
 import com.zsc.game.ui.activity.Main2Activity;
 import com.zsc.game.ui.activity.Main3Activity;
+import com.zsc.game.ui.activity.VideoDetailActivity;
 import com.zsc.game.ui.activity.WelcomeActivity;
 import com.zsc.game.ui.fragment.FragmentA;
 import com.zsc.game.ui.fragment.FragmentB;
@@ -42,4 +43,5 @@ public interface ActivityComponent {
     void Inject(DetailActivity activity);
     void Injext(VRvideoFragment vRvideoFragment);
 
+    void Inject(VideoDetailActivity videoDetailActivity);
 }

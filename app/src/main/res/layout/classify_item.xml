@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_gravity="center_horizontal"
     android:orientation="vertical"
-    android:layout_height="240dp">
+    android:layout_height="270dp">
 
     <ImageView
         android:id="@+id/iv_classify"
