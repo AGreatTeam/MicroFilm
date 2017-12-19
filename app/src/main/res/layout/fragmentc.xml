@@ -1,22 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:background="@mipmap/ic_launcher"
-        android:layout_height="wrap_content" />
+    <FrameLayout
+        android:layout_marginBottom="30dp"
+        style="@style/both_match_style">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:background="@mipmap/ic_launcher"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_nomore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="没有了，点击换下一批"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:visibility="gone" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:background="@mipmap/ic_launcher"
-        android:layout_height="wrap_content" />
+            <com.zsc.game.widget.SwipeCardView
+                android:id="@+id/scw"
+                app:yOffsetStep="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"></com.zsc.game.widget.SwipeCardView>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/comm_btn_selector"
+            android:text="换一批"
+            android:textColor="@color/comm_btn_color_selector"
+            android:textSize="13sp" />
+
+    </FrameLayout>
+
 </LinearLayout>

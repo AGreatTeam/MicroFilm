@@ -1,11 +1,12 @@
 package com.zsc.game.mvp.presenter;
 
-import android.util.Log;
-
 import com.zsc.game.base.BasePresenter;
 import com.zsc.game.mvp.model.FcModel;
-import com.zsc.game.mvp.model.bean.VideoInfo;
+import com.zsc.game.mvp.model.bean.VideoCatagory;
 import com.zsc.game.mvp.view.FcView;
+import com.zsc.game.util.SystemUtils;
+
+import java.util.Random;
 
 import javax.inject.Inject;
 
@@ -21,7 +22,10 @@ import io.reactivex.subscribers.DisposableSubscriber;
  */
 
 public class FcPresenter extends BasePresenter<FcModel,FcView> {
+    final String catalogId = "402834815584e463015584e539330016";
 
+    int max = 108;
+    int min = 1;
 
     @Inject
     public FcPresenter() {
@@ -29,25 +33,23 @@ public class FcPresenter extends BasePresenter<FcModel,FcView> {
 
     public void loadata()
      {
-         model.loadData()
+         model.loadData(catalogId, getNextPage()+"")
                  .subscribeOn(Schedulers.io())
                  .observeOn(AndroidSchedulers.mainThread())
-                 .subscribeWith(new DisposableSubscriber<VideoInfo>() {
+                 .subscribeWith(new DisposableSubscriber<VideoCatagory>() {
                      @Override
-                     public void onNext(VideoInfo responseBody) {
+                     public void onNext(VideoCatagory responseBody) {
                          try {
-                             //String json=responseBody.string();
-                             Log.i("xxx","我的数据"+responseBody);
+                             getView().onSuccess(responseBody);
                          } catch (Exception e) {
                              e.printStackTrace();
                          }
-
                          getView().showToast("成功");
                      }
 
                      @Override
                      public void onError(Throwable t) {
-
+                         getView().onError("刷新失败");
                      }
 
                      @Override
@@ -58,6 +60,13 @@ public class FcPresenter extends BasePresenter<FcModel,FcView> {
 
      }
 
+    private int getNextPage() {
+        int page = 1;
+        if (SystemUtils.isNetworkConnected()) {
+            page = new Random().nextInt(max) % (max - min + 1) + min;
+        }
+        return page;
+    }
 
 
 }

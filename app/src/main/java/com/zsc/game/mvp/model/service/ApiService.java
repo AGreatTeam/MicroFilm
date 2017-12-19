@@ -1,5 +1,7 @@
 package com.zsc.game.mvp.model.service;
 
+import com.zsc.game.mvp.model.bean.VideoCatagory;
+
 import com.zsc.game.mvp.model.bean.ShipinContentInfo;
 import com.zsc.game.mvp.model.bean.VideoInfo;
 
@@ -20,6 +22,14 @@ public interface ApiService {
     @GET("front/homePageApi/homePage.do")
     Flowable<String> getData();
     //专题：http://api.svipmovie.com/front/columns/getVideoList.do?catalogId=1&pnum=10 请求方式：GET
+    /**
+     * 影片分类列表
+     * @param catalogId
+     * @param pnum
+     * @return
+     */
+    @GET("front/columns/getVideoList.do")
+    Flowable<VideoCatagory> getVideoList(@Query("catalogId") String catalogId, @Query("pnum") String pnum);
     @GET("front/videoDetailApi/videoDetail.do")
     Flowable<ShipinContentInfo> getLoadShiPin(@Query("mediaId") String id);
     //第二个页面fragmennt

@@ -26,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.VideoDetailActivity"></activity>
         <activity android:name=".ui.activity.ClassifyListActivity" />
         <activity android:name=".ui.activity.Main3Activity" />
         <activity android:name=".ui.activity.DetailActivity"></activity>

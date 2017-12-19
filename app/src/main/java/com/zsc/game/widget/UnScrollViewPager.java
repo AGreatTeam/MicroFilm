@@ -40,7 +40,6 @@ public class UnScrollViewPager extends ViewPager {
     public boolean onTouchEvent(MotionEvent arg0) {
         if (isScrollable)
             return super.onTouchEvent(arg0);
-        boolean b = super.onTouchEvent(arg0);
         return false;
     }
 
