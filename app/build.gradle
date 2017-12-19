@@ -89,7 +89,5 @@ dependencies {
     implementation project(':commonwidget')
     implementation project(':panowidget')
     compile 'com.google.android.exoplayer:exoplayer:r1.5.10'
-    compile 'com.google.protobuf.nano:protobuf-javanano:3.0.0-alpha-7'
-    implementation project(':videowidget')
 }
 

@@ -11,6 +11,7 @@ import com.zsc.game.ui.fragment.FragmentA;
 import com.zsc.game.ui.fragment.FragmentB;
 import com.zsc.game.ui.fragment.FragmentC;
 import com.zsc.game.ui.fragment.FragmentD;
+import com.zsc.game.ui.fragment.VRpickFragment;
 import com.zsc.game.ui.fragment.VRvideoFragment;
 
 import dagger.Subcomponent;
