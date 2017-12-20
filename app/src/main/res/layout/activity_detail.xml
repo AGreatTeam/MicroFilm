@@ -75,5 +75,4 @@
         android:textColor="#D8ffffff"
         android:layout_height="wrap_content" />
 
-
 </LinearLayout>

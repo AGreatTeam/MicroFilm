@@ -2,6 +2,7 @@ package com.zsc.game.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -141,6 +142,7 @@ public class DetailActivity extends BaseActivity<ShiPinPresenter> implements Shi
     @Override
     public void getShipin(ShipinContentInfo.RetBean retBean) {
         if (!retBean.getHDURL().equals("")){
+            Log.i("URL", "getShipin: "+ retBean.toString());
             tvDirector.setText("导演："+retBean.getDirector());
             actors.setText("主演："+retBean.getActors());
             tvDes.setText("简介："+retBean.getDescription());
@@ -182,10 +184,4 @@ public class DetailActivity extends BaseActivity<ShiPinPresenter> implements Shi
         mainComponent.Inject(this);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }
