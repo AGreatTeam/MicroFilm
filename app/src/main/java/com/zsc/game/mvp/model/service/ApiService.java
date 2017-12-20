@@ -4,6 +4,7 @@ import com.zsc.game.mvp.model.bean.VideoCatagory;
 
 import com.zsc.game.mvp.model.bean.ShipinContentInfo;
 import com.zsc.game.mvp.model.bean.VideoInfo;
+import com.zsc.game.mvp.model.bean.VrVideoBean;
 
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
@@ -39,5 +40,7 @@ public interface ApiService {
     /**
      * VR视频数据
      * */
+    @GET("api/video/query")
+    Flowable<VrVideoBean> getVrVideo();
 
 }

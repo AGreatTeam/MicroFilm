@@ -4,7 +4,6 @@ import android.util.Log;
 
 import java.util.concurrent.TimeUnit;
 
-import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -66,7 +65,7 @@ public class ClientModule {
     public Retrofit provideRetrofit2(Retrofit.Builder retrofitBuilder, OkHttpClient okHttpClient)
     {
         retrofitBuilder
-                .baseUrl("http://api.svipmovie.com/")
+                .baseUrl("http://api.youkes.com:8081/")
                 .client(okHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
