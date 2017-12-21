@@ -24,13 +24,15 @@ import java.util.List;
 
 public class LSAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    private int zz=0;
     private int type_0;
     private int type_1;
     private Context context;
     private List<ShipinContentInfo.RetBean> list;
 
-    public LSAdapter(Context context, List<ShipinContentInfo.RetBean> list) {
+    public LSAdapter(Context context, List<ShipinContentInfo.RetBean> list,int zz) {
         this.context = context;
+        this.zz=zz;
         this.list = list;
     }
 
@@ -40,8 +42,8 @@ public class LSAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         if(viewType==0)
         {
-
             View view=LayoutInflater.from(context).inflate(R.layout.ls_item,parent,false);
+
             final RecyclerView.ViewHolder viewHolder=new MyViewHolder(view);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -61,6 +63,14 @@ public class LSAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
            if(holder instanceof MyViewHolder)
            {
+               if(zz!=0)
+               {
+                   ViewGroup.LayoutParams params=  ((MyViewHolder) holder).image.getLayoutParams();
+                   params.width=330;
+                   params.height=260;
+                   ((MyViewHolder) holder).image.setLayoutParams(params);
+               }
+
                   Glide.with(context).load(list.get(list.size()-(position+1)).getPic()).into(((MyViewHolder) holder).image);
                    ((MyViewHolder) holder).tv.setText(list.get(list.size()-(position+1)).getTitle());
            }
@@ -68,7 +78,14 @@ public class LSAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return (list.size()>=0&&list.size()<=3)?list.size():3;
+           if(zz==0)
+           {
+               return (list.size()>=0&&list.size()<=3)?list.size():3;
+           }else
+           {
+               return  list.size();
+           }
+
     }
 
     @Override

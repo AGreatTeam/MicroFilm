@@ -1,5 +1,6 @@
 package com.zsc.game.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +20,9 @@ import com.zsc.game.di.component.ActivityComponent;
 import com.zsc.game.mvp.model.bean.ShipinContentInfo;
 import com.zsc.game.mvp.presenter.FdPresenter;
 import com.zsc.game.mvp.view.FdView;
+import com.zsc.game.ui.activity.LSActivity;
+import com.zsc.game.ui.activity.LoadActivity;
+import com.zsc.game.ui.activity.Main3Activity;
 import com.zsc.game.ui.adapter.LSAdapter;
 import com.zsc.game.util.DaoUtils;
 
@@ -76,7 +80,8 @@ public class FragmentD extends BaseFragment<FdPresenter> implements FdView {
          @Override
          public void onClick(View v) {
 
-             Toast.makeText(getContext(), "哈哈哈", Toast.LENGTH_SHORT).show();
+             Intent intent=new Intent(getActivity(), LSActivity.class);
+             startActivity(intent);
          }
      });
      //loadData();
@@ -85,24 +90,35 @@ public class FragmentD extends BaseFragment<FdPresenter> implements FdView {
 
    public void  loadData()
    {
-       List<ShipinContentInfo.RetBean> objects = DaoUtils.selectAll();
+       final List<ShipinContentInfo.RetBean> objects = DaoUtils.selectAll();
        Log.i("xxxa","数据"+objects.size());
-       if(objects.size()>0)
+      if(objects.size()>0)
        {
            recyclerView.setVisibility(View.VISIBLE);
            recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
 
-               lsAdapter = new LSAdapter(getContext(),objects);
+               lsAdapter = new LSAdapter(getContext(),objects,0);
                recyclerView.setAdapter(lsAdapter);
                lsAdapter.setMyItemClick(new LSAdapter.MyItemClick() {
                    @Override
                    public void OnItemClick(int position) {
-                       Log.i("xxx","position"+position);
+
+                       Intent intent=new Intent(getActivity(), Main3Activity.class);
+                       intent.putExtra("id", objects.get(position).getVid());
+                       startActivity(intent);
+
                    }
                });
-           
-
        }
+
+      rlDown.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+            Intent intent=new Intent(getActivity(), LoadActivity.class);
+
+            startActivity(intent);
+           }
+       });
 
    }
 

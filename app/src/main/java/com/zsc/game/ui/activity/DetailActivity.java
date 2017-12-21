@@ -22,6 +22,7 @@ import com.zsc.game.di.component.ActivityComponent;
 import com.zsc.game.mvp.model.bean.ShipinContentInfo;
 import com.zsc.game.mvp.presenter.ShiPinPresenter;
 import com.zsc.game.mvp.view.ShiPinView;
+import com.zsc.game.util.DaoUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -132,6 +133,7 @@ public class DetailActivity extends BaseActivity<ShiPinPresenter> implements Shi
     ImageView playIcon;
     @BindView(R.id.app_video_box)
     RelativeLayout appVideoBox;
+    private String id;
     @BindView(R.id.tv_des)
     TextView tvDes;
     @BindView(R.id.tv_director)
@@ -141,6 +143,14 @@ public class DetailActivity extends BaseActivity<ShiPinPresenter> implements Shi
 
     @Override
     public void getShipin(ShipinContentInfo.RetBean retBean) {
+        new PlayerView(this)
+                .setTitle(retBean.getTitle())
+                .setScaleType(PlayStateParams.fitparent)
+                .hideMenu(true)
+                .forbidTouch(false)
+                .setPlaySource(retBean.getHDURL())
+                .startPlay();
+        DaoUtils.insert(retBean,id);
         if (!retBean.getHDURL().equals("")){
             Log.i("URL", "getShipin: "+ retBean.toString());
             tvDirector.setText("导演："+retBean.getDirector());
@@ -172,7 +182,7 @@ public class DetailActivity extends BaseActivity<ShiPinPresenter> implements Shi
     @Override
     protected void processLogic() {
         Intent intent = getIntent();
-        String id = intent.getStringExtra("id");
+        id = intent.getStringExtra("id");
         String title = intent.getStringExtra("title");
         tvTitle.setText(title);
         mPresenter.getLoadShipin(id);

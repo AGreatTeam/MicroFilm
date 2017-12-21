@@ -4,12 +4,13 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.zsc.game.base.BaseApplication;
+
 import com.zsc.game.greendao.Data;
+import com.zsc.game.greendao.Mls;
 import com.zsc.game.mvp.model.bean.ShipinContentInfo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
 
 /**
  * 类的用途：
@@ -25,24 +26,33 @@ public class DaoUtils {
      * @param mClass
      * @param
      */
-    public static  void insert(ShipinContentInfo.RetBean mClass)
+    public static  void insert(ShipinContentInfo.RetBean mClass,String id)
     {
         Gson gson=new Gson();
         String json=gson.toJson(mClass);
+
         Boolean ishas=false;
-        List<Data> list = BaseApplication.daoSession.getDataDao().queryBuilder().list();
+        List<Mls> list = BaseApplication.daoSession.getMlsDao().queryBuilder().list();
+
+        Log.i("xxx","查询的数据"+list.size());
         for (int i=0;i<list.size();i++)
         {
-             if(json.equals(list.get(i).getJson()))
+             if(list.get(i).getTitile().equals(mClass.getTitle()))
              {
                  ishas=true;
+                 Log.i("xxxe","有相同的");
              }
+
         }
+
         if(!ishas)
         {
-            Data date=new Data();
+            Log.i("xxxe","添加了");
+            Mls date=new Mls();
             date.setJson(json);
-            BaseApplication.daoSession.getDataDao().insert(date);
+            date.setVid(id);
+            date.setTitile(mClass.getTitle());
+            BaseApplication.daoSession.getMlsDao().insert(date);
         }
 
 
@@ -54,26 +64,31 @@ public class DaoUtils {
      */
     public static List<ShipinContentInfo.RetBean> selectAll()
     {
-        List<Data> list = BaseApplication.daoSession.getDataDao().queryBuilder().list();
+        List<Mls> list = BaseApplication
+                .daoSession.getMlsDao().queryBuilder().list();
 
         List<ShipinContentInfo.RetBean> lists=new ArrayList<>();
 
         Gson gson=new Gson();
 
-        for (int i=0;i<list.size();i++)
+      for (int i=0;i<list.size();i++)
         {
            String json=list.get(i).getJson();
-           lists.add(gson.fromJson(json, ShipinContentInfo.RetBean.class));
+            ShipinContentInfo.RetBean  zz= gson.fromJson(json, ShipinContentInfo.RetBean.class);
+            zz.setVid(list.get(i).getVid());
+            lists.add(zz);
+
         }
        return  lists;
     }
+
 
     /**
      * 删除所有历史
      */
     public static void delectAll()
     {
-        BaseApplication.daoSession.getDataDao().deleteAll();
+        BaseApplication.daoSession.getMlsDao().deleteAll();
     }
 
 
