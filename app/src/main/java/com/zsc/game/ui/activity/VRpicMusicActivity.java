@@ -31,7 +31,7 @@ public class VRpicMusicActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-       // String pic = intent.getStringExtra("pic");
+        // String pic = intent.getStringExtra("pic");
         pic = (ImageItem) intent.getSerializableExtra("pic");
         Log.i("lll", pic.toString());
         //隐藏掉VR效果左下角的信息按钮显示
@@ -47,20 +47,20 @@ public class VRpicMusicActivity extends AppCompatActivity {
         MyAsyTaskPic myAsyTaskPic = new MyAsyTaskPic();
         myAsyTaskPic.execute();
     }
-    private class MyAsyTaskPic extends AsyncTask<Void ,Void,Bitmap> {
+
+    private class MyAsyTaskPic extends AsyncTask<Void, Void, Bitmap> {
 
         @Override
         protected Bitmap doInBackground(Void... voids) {
-
-                return ImageUrGetter.returnBitmap(pic.getPicAddress());
-
+            return ImageUrGetter.returnBitmap(pic.getPicAddress());
         }
+
         @Override
         protected void onPostExecute(Bitmap bitmap) {
             //创建bVrPanoramaView.Options,去决定显示VR是普通效果,还是立体效果
             VrPanoramaView.Options options = new VrPanoramaView.Options();
             //TYPE_STEREO_OVER_UNDER立体效果:图片的上半部分放在左眼显示,下半部分放在右眼显示     TYPE_MONO:普通效果
-            options.inputType=VrPanoramaView.Options.TYPE_STEREO_OVER_UNDER;
+            options.inputType = VrPanoramaView.Options.TYPE_MONO;
             //使用VR控件对象,显示效果  参数:1.Bitmap对象      2.VrPanoramaView.Options对象,决定显示的效果
             viewById.loadImageFromBitmap(bitmap, options);
             super.onPostExecute(bitmap);
@@ -74,14 +74,14 @@ public class VRpicMusicActivity extends AppCompatActivity {
         @Override
         public void onLoadSuccess() {
             super.onLoadSuccess();
-            Toast.makeText(VRpicMusicActivity.this, "加载成功,么么哒", Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(VRpicMusicActivity.this, "加载成功", Toast.LENGTH_SHORT).show();
         }
+
         //当VR视图加载失败的时候回调
         @Override
         public void onLoadError(String errorMessage) {
             super.onLoadError(errorMessage);
-            Toast.makeText(VRpicMusicActivity.this, "加载失败,不好意思,因为易大师太帅影响", Toast.LENGTH_SHORT).show();
+            Toast.makeText(VRpicMusicActivity.this, "加载失败", Toast.LENGTH_SHORT).show();
         }
     }
 

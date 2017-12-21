@@ -39,7 +39,7 @@
         <activity android:name=".ui.activity.DetailActivity" />
         <activity android:name=".ui.activity.SousuoActivity" />
         <activity android:name=".ui.activity.VrVideoDetailActivity" />
-        <activity android:name=".ui.activity.VRpicMusicActivity"></activity>
+        <activity android:name=".ui.activity.VRpicMusicActivity" />
     </application>
 
 </manifest>
