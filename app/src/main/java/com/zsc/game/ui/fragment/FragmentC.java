@@ -1,8 +1,11 @@
 package com.zsc.game.ui.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +35,16 @@ import butterknife.OnClick;
 public class FragmentC extends BaseFragment<FcPresenter> implements FcView {
 
 
+    @BindView(R.id.goback)
+    ImageView goback;
+    @BindView(R.id.gobackLayout)
+    LinearLayout gobackLayout;
+    @BindView(R.id.title_bar_name)
+    TextView titleBarName;
+    @BindView(R.id.settv)
+    TextView settv;
+    @BindView(R.id.title_bar_layout)
+    LinearLayout titleBarLayout;
     @BindView(R.id.tv_nomore)
     TextView tvNomore;
     @BindView(R.id.scw)
@@ -54,8 +67,11 @@ public class FragmentC extends BaseFragment<FcPresenter> implements FcView {
 
     @Override
     protected void initInject(ActivityComponent mainComponent) {
-
         mainComponent.Inject(this);
+        titleBarLayout.setBackgroundColor(Color.RED);
+        goback.setVisibility(View.GONE);
+        settv.setVisibility(View.GONE);
+        titleBarName.setText("发现");
     }
 
     @Override
@@ -71,9 +87,8 @@ public class FragmentC extends BaseFragment<FcPresenter> implements FcView {
     @Override
     public void onSuccess(final VideoCatagory catagory) {
         if (catagory != null) {
-            swipeDeck.setVisibility(View.VISIBLE);
-            tvNomore.setVisibility(View.GONE);
             list = catagory.ret.list;
+            swipeDeck.setVisibility(View.VISIBLE);
             if (adapter == null) {
                 adapter = new SwipeDeckAdapter(list, getContext());
                 swipeDeck.setAdapter(adapter);
@@ -85,16 +100,6 @@ public class FragmentC extends BaseFragment<FcPresenter> implements FcView {
 
                     @Override
                     public void onCardVanish(int index, SwipeCardView.SlideType type) {
-                        if (index == list.size()-1){
-                            swipeDeck.setVisibility(View.GONE);
-                            tvNomore.setVisibility(View.VISIBLE);
-                            tvNomore.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    mPresenter.loadata();
-                                }
-                            });
-                        }
                     }
 
                     @Override
@@ -104,6 +109,7 @@ public class FragmentC extends BaseFragment<FcPresenter> implements FcView {
                         VideoDetail videoDetail = new VideoDetail(listBean.title,listBean.pic,listBean.dataId,listBean.score,listBean.airTime,listBean.loadURL,listBean.loadtype);
                         intent.putExtra("videoInfo", videoDetail);
                         startActivity(intent);
+                        getActivity().overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
                     }
                 });
             } else {
@@ -118,7 +124,7 @@ public class FragmentC extends BaseFragment<FcPresenter> implements FcView {
         Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
     }
 
-    @OnClick({R.id.btn_next, R.id.tv_nomore})
+    @OnClick(R.id.btn_next)
     public void onViewClicked() {
         mPresenter.loadata();
     }

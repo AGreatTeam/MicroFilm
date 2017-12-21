@@ -17,6 +17,7 @@ public class ShiPinModle  {
 
     @Inject
     public ShiPinModle() {
+
     }
     @Me
     @Inject

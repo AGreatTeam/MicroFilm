@@ -52,4 +52,27 @@
         layout="@layout/simple_player_view_player"
         android:layout_width="match_parent"
         android:layout_height="250dp"/>
+
+    <TextView
+        android:id="@+id/tv_director"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#D8ffffff" />
+    <TextView
+        android:id="@+id/actors"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:textColor="#D8ffffff"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_des"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:textColor="#D8ffffff"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
