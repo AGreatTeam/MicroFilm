@@ -1,5 +1,6 @@
 package com.zsc.game.mvp.model;
 
+import com.zsc.game.di.module.My;
 import com.zsc.game.mvp.model.service.ApiService;
 
 import javax.inject.Inject;
@@ -15,6 +16,7 @@ public class VrVideoModel {
     @Inject
     public VrVideoModel() {
     }
+    @My
     @Inject
     Retrofit retrofit;
 

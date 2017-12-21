@@ -17,6 +17,7 @@ import com.zsc.game.util.NetUtils;
 public class Main3Activity extends BaseActivity<ShiPinPresenter> implements ShiPinView {
 
 
+    private String id;
 
     @Override
     protected int setLayout() {
@@ -26,8 +27,8 @@ public class Main3Activity extends BaseActivity<ShiPinPresenter> implements ShiP
     @Override
     protected void processLogic() {
         Intent intent = getIntent();
-        final String id = intent.getStringExtra("id");
-        Log.i("rrr",id);
+        id = intent.getStringExtra("id");
+        Log.i("rrr", id);
         mPresenter.getLoadShipin(id);
         int netWorkType = NetUtils.getNetWorkType(Main3Activity.this);
         Log.i("rrr",netWorkType+"");
@@ -77,7 +78,7 @@ public class Main3Activity extends BaseActivity<ShiPinPresenter> implements ShiP
                 .startPlay();
 
               //播放视频 记录历史 添加数据库
-              DaoUtils.insert(retBean);
+              DaoUtils.insert(retBean,id);
 
     }
 }

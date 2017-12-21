@@ -74,6 +74,26 @@ public class ShipinContentInfo {
          * vipFlag : false
          */
 
+        private String vid;
+
+        private int progress;
+
+        public String getVid() {
+            return vid;
+        }
+
+        public void setVid(String vid) {
+            this.vid = vid;
+        }
+
+        public int getProgress() {
+            return progress;
+        }
+
+        public void setProgress(int progress) {
+            this.progress = progress;
+        }
+
         private String HDURL;
         private String SDURL;
         private String actors;

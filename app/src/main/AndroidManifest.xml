@@ -36,9 +36,12 @@
         <activity android:name=".ui.activity.VideoDetailActivity"></activity>
         <activity android:name=".ui.activity.ClassifyListActivity" />
         <activity android:name=".ui.activity.DummyActivity"></activity>
+        <activity android:name=".ui.activity.LoadActivity"></activity>
         <!--<activity android:name=".ui.activity.MainActivity" />-->
         <activity android:name=".ui.activity.Main3Activity" />
         <activity android:name=".ui.activity.DetailActivity"></activity>
+        <activity android:name=".ui.activity.LSActivity"></activity>
+        <service android:name=".service.DownLoadService"></service>
     </application>
 
 </manifest>

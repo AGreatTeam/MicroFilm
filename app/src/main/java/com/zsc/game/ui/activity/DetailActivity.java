@@ -20,6 +20,7 @@ import com.zsc.game.di.component.ActivityComponent;
 import com.zsc.game.mvp.model.bean.ShipinContentInfo;
 import com.zsc.game.mvp.presenter.ShiPinPresenter;
 import com.zsc.game.mvp.view.ShiPinView;
+import com.zsc.game.util.DaoUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -130,6 +131,7 @@ public class DetailActivity extends BaseActivity<ShiPinPresenter> implements Shi
     ImageView playIcon;
     @BindView(R.id.app_video_box)
     RelativeLayout appVideoBox;
+    private String id;
 
     @Override
     public void getShipin(ShipinContentInfo.RetBean retBean) {
@@ -140,6 +142,7 @@ public class DetailActivity extends BaseActivity<ShiPinPresenter> implements Shi
                 .forbidTouch(false)
                 .setPlaySource(retBean.getHDURL())
                 .startPlay();
+        DaoUtils.insert(retBean,id);
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -156,7 +159,7 @@ public class DetailActivity extends BaseActivity<ShiPinPresenter> implements Shi
     @Override
     protected void processLogic() {
         Intent intent = getIntent();
-        String id = intent.getStringExtra("id");
+        id = intent.getStringExtra("id");
         String title = intent.getStringExtra("title");
         tvTitle.setText(title);
         mPresenter.getLoadShipin(id);
