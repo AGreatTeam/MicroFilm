@@ -2,6 +2,7 @@ package com.zsc.game.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -10,6 +11,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dou361.ijkplayer.widget.IjkVideoView;
 import com.dou361.ijkplayer.widget.PlayStateParams;
@@ -130,16 +132,30 @@ public class DetailActivity extends BaseActivity<ShiPinPresenter> implements Shi
     ImageView playIcon;
     @BindView(R.id.app_video_box)
     RelativeLayout appVideoBox;
+    @BindView(R.id.tv_des)
+    TextView tvDes;
+    @BindView(R.id.tv_director)
+    TextView tvDirector;
+    @BindView(R.id.actors)
+    TextView actors;
 
     @Override
     public void getShipin(ShipinContentInfo.RetBean retBean) {
-        new PlayerView(this)
-                .setTitle(retBean.getTitle())
-                .setScaleType(PlayStateParams.fitparent)
-                .hideMenu(true)
-                .forbidTouch(false)
-                .setPlaySource(retBean.getHDURL())
-                .startPlay();
+        if (!retBean.getHDURL().equals("")){
+            Log.i("URL", "getShipin: "+ retBean.toString());
+            tvDirector.setText("导演："+retBean.getDirector());
+            actors.setText("主演："+retBean.getActors());
+            tvDes.setText("简介："+retBean.getDescription());
+            new PlayerView(this)
+                    .setTitle(retBean.getTitle())
+                    .setScaleType(PlayStateParams.fitparent)
+                    .hideMenu(true)
+                    .forbidTouch(false)
+                    .setPlaySource(retBean.getHDURL())
+                    .startPlay();
+        }else
+            Toast.makeText(this, "无效的播放地址", Toast.LENGTH_SHORT).show();
+
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

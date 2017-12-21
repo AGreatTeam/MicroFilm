@@ -14,7 +14,7 @@
         android:background="#8cffffff"
         android:layout_width="match_parent"
         android:scaleType="fitXY"
-        android:layout_height="230dp" />
+        android:layout_height="200dp" />
     <TextView
         android:id="@+id/tv_classify"
         android:textSize="18sp"

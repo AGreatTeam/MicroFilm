@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include layout="@layout/title_bar"></include>
 
     <FrameLayout
         android:layout_marginBottom="30dp"
@@ -17,12 +18,12 @@
             android:layout_gravity="center"
             android:text="没有了，点击换下一批"
             android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:visibility="gone" />
+            android:textSize="14sp" />
 
             <com.zsc.game.widget.SwipeCardView
                 android:id="@+id/scw"
-                app:yOffsetStep="10dp"
+                app:yOffsetStep="20dp"
+                app:scaleOffsetStep="0.05"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
