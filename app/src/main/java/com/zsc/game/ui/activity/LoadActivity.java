@@ -58,6 +58,7 @@ public class LoadActivity extends AppCompatActivity {
             public void OnItemClick(int position) {
 
 
+            Log.i("xxx",list.get(position).getHDURL());
 
              String url="http://pic.ibaotu.com/00/40/40/88F888piC3mI.mp4_10s.mp4";
                 DownLoadUtil.isPause=false;
@@ -95,5 +96,11 @@ public class LoadActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.base_slide_right_out_f,R.anim.base_slide_right_in_f);
     }
 }

@@ -1,13 +1,16 @@
 package com.zsc.game.ui.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.zsc.game.R;
 import com.zsc.game.base.BaseActivity;
@@ -27,6 +30,7 @@ import com.zsc.game.widget.UnScrollViewPager;
 import com.zsc.game.widget.theme.ColorRelativeLayout;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -63,12 +67,14 @@ public class Main2Activity extends BaseActivity<MainPresenter> implements MainVi
         return R.layout.activity_main2;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void processLogic() {
 
-        String mcnc = SystemUtils.GetNetworkType(this);
+      /*  String mcnc = SystemUtils.GetNetworkType(this);
         SystemUtils.intentSetting(this);
-        Log.i("xxxa","类型"+mcnc);
+        Log.i("xxxa","类型"+mcnc);*/
+
         List<Fragment> fragments = initFragments();
         vpContent.setScrollable(false);
         mPagerAdapter = new ContentPagerAdapter(getSupportFragmentManager(), fragments);
@@ -123,12 +129,6 @@ public class Main2Activity extends BaseActivity<MainPresenter> implements MainVi
     }
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 
 
     @Override

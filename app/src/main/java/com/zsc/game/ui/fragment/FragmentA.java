@@ -117,6 +117,7 @@ public class FragmentA extends BaseFragment<FaPresenter> implements FaView, Swip
                             intent.setClassName("com.android.settings", "com.android.settings.WirelessSettings");
                         }
                         getActivity().startActivity(intent);
+
                     }
                 });
         }

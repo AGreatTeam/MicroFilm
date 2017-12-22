@@ -3,6 +3,8 @@ package com.zsc.game.mvp.model;
 import com.zsc.game.di.module.My;
 import com.zsc.game.mvp.model.bean.VrVideoBean;
 import com.zsc.game.di.module.My;
+import com.zsc.game.di.module.My;
+import com.zsc.game.mvp.model.bean.VrVideoBean;
 import com.zsc.game.mvp.model.service.ApiService;
 
 import javax.inject.Inject;

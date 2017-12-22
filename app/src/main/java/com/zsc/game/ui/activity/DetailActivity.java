@@ -143,6 +143,21 @@ public class DetailActivity extends BaseActivity<ShiPinPresenter> implements Shi
 
     @Override
     public void getShipin(ShipinContentInfo.RetBean retBean) {
+        if (!retBean.getHDURL().equals("")&&retBean.getHDURL().trim().toString().length()>0){
+            Log.i("URL", "getShipin: "+ retBean.toString());
+            tvDirector.setText("导演："+retBean.getDirector());
+            actors.setText("主演："+retBean.getActors());
+            tvDes.setText("简介："+retBean.getDescription());
+            new PlayerView(this)
+                    .setTitle(retBean.getTitle())
+                    .setScaleType(PlayStateParams.fitparent)
+                    .hideMenu(true)
+                    .forbidTouch(false)
+                    .setPlaySource(retBean.getHDURL())
+                    .startPlay();
+        }else
+            Toast.makeText(this, "无效的播放地址", Toast.LENGTH_SHORT).show();
+
         new PlayerView(this)
                 .setTitle(retBean.getTitle())
                 .setScaleType(PlayStateParams.fitparent)
@@ -194,4 +209,9 @@ public class DetailActivity extends BaseActivity<ShiPinPresenter> implements Shi
         mainComponent.Inject(this);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.base_slide_right_out_f,R.anim.base_slide_right_in_f);
+    }
 }

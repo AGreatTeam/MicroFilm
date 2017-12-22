@@ -48,4 +48,10 @@ public class LSActivity  extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+       overridePendingTransition(R.anim.base_slide_right_out_f,R.anim.base_slide_right_in_f);
+    }
 }

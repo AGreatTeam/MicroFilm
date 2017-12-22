@@ -88,6 +88,7 @@ public class FragmentB extends BaseFragment<FbPresenter> implements FbView {
                 intent.putExtra("index",childAdapterPosition);
                 intent.putExtra("title",list.get(childAdapterPosition).getTitle());
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.base_slide_right_in,R.anim.base_slide_right_out);
             }
         });
 
