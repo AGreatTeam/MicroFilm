@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/MicroFilm.iml" filepath="$PROJECT_DIR$/MicroFilm.iml" />
       <module fileurl="file://$PROJECT_DIR$/Game.iml" filepath="$PROJECT_DIR$/Game.iml" />
       <module fileurl="file://D:\1507DD\MicroFilm\Game.iml" filepath="D:\1507DD\MicroFilm\Game.iml" />
       <module fileurl="file://D:\zscStuday\Game\MicroFilm.iml" filepath="D:\zscStuday\Game\MicroFilm.iml" />
