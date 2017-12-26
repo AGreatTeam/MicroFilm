@@ -69,8 +69,6 @@ dependencies {
     //视频播放
     compile 'com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.5'
 
-    //recycleview
-    compile 'com.android.support:recyclerview-v7:26.1.0'
     //recyclerview
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     compile 'com.daprlabs.aaron:cardstack:0.3.1-beta0'
@@ -96,8 +94,8 @@ dependencies {
 
     //ijkplayer 支持多种 ABI 类型的机型
     compile 'tv.danmaku.ijk.media:ijkplayer-java:0.6.0'
-    // 对应 ijkplayer 的  compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.6.0'
-    compile 'com.dou361.ijkplayer-armv7a:jjdxm-ijkplayer-armv7a:1.0.0'
+//    // 对应 ijkplayer 的  compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.6.0'
+//    compile 'com.dou361.ijkplayer-armv7a:jjdxm-ijkplayer-armv7a:1.0.0'
     //对应 ijkplayer 的  compile 'tv.danmaku.ijk.media:ijkplayer-armv5:0.6.0'
     compile 'com.dou361.ijkplayer-armv5:jjdxm-ijkplayer-armv5:1.0.0'
     //对应 ijkplayer 的  compile 'tv.danmaku.ijk.media:ijkplayer-arm64:0.6.0'

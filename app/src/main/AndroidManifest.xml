@@ -40,6 +40,8 @@
         <activity android:name=".ui.activity.SousuoActivity" />
         <activity android:name=".ui.activity.VrVideoDetailActivity" />
         <activity android:name=".ui.activity.VRpicMusicActivity" />
+        <activity android:name=".ui.activity.LSActivity"/>
+        <activity android:name=".ui.activity.LoadActivity"/>
     </application>
 
 </manifest>

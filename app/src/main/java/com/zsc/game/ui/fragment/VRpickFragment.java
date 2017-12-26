@@ -11,7 +11,8 @@ import android.view.ViewGroup;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.zsc.game.R;
 import com.zsc.game.VR.ImageUrGetter;
-import com.zsc.game.ui.adapter.VrPicAdapter;
+import com.zsc.game.ui.adapter.
+        VrPicAdapter;
 
 /**
  * Created by 1 on 2017/12/18.
