@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.zsc.game.R;
 import com.zsc.game.app.MApplication;
 import com.zsc.game.di.component.ActivityComponent;
 
@@ -99,8 +100,10 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         unbinder.unbind();
     }
 
-
-
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.base_slide_right_out_f,R.anim.base_slide_right_in_f);
+    }
 
 }

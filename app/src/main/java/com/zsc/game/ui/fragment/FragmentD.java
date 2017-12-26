@@ -82,6 +82,7 @@ public class FragmentD extends BaseFragment<FdPresenter> implements FdView {
 
              Intent intent=new Intent(getActivity(), LSActivity.class);
              startActivity(intent);
+             getActivity().overridePendingTransition(R.anim.base_slide_right_in,R.anim.base_slide_right_out);
          }
      });
      //loadData();
@@ -106,6 +107,8 @@ public class FragmentD extends BaseFragment<FdPresenter> implements FdView {
                        Intent intent=new Intent(getActivity(), Main3Activity.class);
                        intent.putExtra("id", objects.get(position).getVid());
                        startActivity(intent);
+                        getActivity().overridePendingTransition(R.anim.base_slide_right_in,R.anim.base_slide_right_out);
+
 
                    }
                });
@@ -115,8 +118,8 @@ public class FragmentD extends BaseFragment<FdPresenter> implements FdView {
            @Override
            public void onClick(View v) {
             Intent intent=new Intent(getActivity(), LoadActivity.class);
-
             startActivity(intent);
+               getActivity().overridePendingTransition(R.anim.base_slide_right_in,R.anim.base_slide_right_out);
            }
        });
 

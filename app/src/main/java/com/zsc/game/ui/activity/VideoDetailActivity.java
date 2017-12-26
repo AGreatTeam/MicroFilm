@@ -8,12 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.dou361.ijkplayer.bean.VideoijkBean;
 import com.dou361.ijkplayer.listener.OnShowThumbnailListener;
+import com.dou361.ijkplayer.widget.IjkVideoView;
 import com.dou361.ijkplayer.widget.PlayStateParams;
 import com.dou361.ijkplayer.widget.PlayerView;
 import com.zsc.game.R;
@@ -40,7 +42,10 @@ public class VideoDetailActivity extends BaseActivity<ShiPinPresenter> implement
     ImageView goback;
     @BindView(R.id.title_bar_name)
     TextView titleBarName;
-
+    @BindView(R.id.video_view)
+    IjkVideoView ijkVideoView;
+    @BindView(R.id.app_video_box)
+    RelativeLayout videoBox;
     @BindView(R.id.settv)
     TextView settv;
 
@@ -87,11 +92,17 @@ public class VideoDetailActivity extends BaseActivity<ShiPinPresenter> implement
         if(ori == mConfiguration.ORIENTATION_LANDSCAPE){
 
 //横屏
+            ViewGroup.LayoutParams layoutParams = videoBox.getLayoutParams();
+            layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT;
+            videoBox.setLayoutParams(layoutParams);
             titleBarLayout.setVisibility(View.GONE);
             return true;
         }else if(ori == mConfiguration.ORIENTATION_PORTRAIT){
 
 //竖屏
+            ViewGroup.LayoutParams layoutParams = videoBox.getLayoutParams();
+            layoutParams.height = 500;
+            videoBox.setLayoutParams(layoutParams);
             return false;
         }
         return false;

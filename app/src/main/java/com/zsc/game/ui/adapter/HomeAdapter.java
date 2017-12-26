@@ -56,6 +56,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                 Intent intent = new Intent(mContext, Main3Activity.class);
                 intent.putExtra("id",dataId);
                 mContext.startActivity(intent);
+
+             // mContext.overridePendingTransition(R.anim.base_slide_right_in,R.anim.base_slide_right_out);
             }
         });
 

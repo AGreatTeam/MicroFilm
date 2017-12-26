@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.util.Log;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.zsc.game.R;
 import com.zsc.game.base.BaseActivity;
@@ -29,6 +30,7 @@ import com.zsc.game.widget.theme.ColorRelativeLayout;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -121,12 +123,6 @@ public class Main2Activity extends BaseActivity<MainPresenter> implements MainVi
     }
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 
 
     @Override
