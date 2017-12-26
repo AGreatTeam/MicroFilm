@@ -9,7 +9,6 @@
 
     <include layout="@layout/title_bar"></include>
 
-
     <include
         layout="@layout/simple_player_view_player"/>
 

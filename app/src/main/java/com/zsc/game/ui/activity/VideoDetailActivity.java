@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -100,8 +101,11 @@ public class VideoDetailActivity extends BaseActivity<ShiPinPresenter> implement
         }else if(ori == mConfiguration.ORIENTATION_PORTRAIT){
 
 //竖屏
+            Display defaultDisplay = getWindowManager().getDefaultDisplay();
+            int height = defaultDisplay.getHeight();
+            System.out.println("高度："+height);
             ViewGroup.LayoutParams layoutParams = videoBox.getLayoutParams();
-            layoutParams.height = 500;
+            layoutParams.height = height/5*2;
             videoBox.setLayoutParams(layoutParams);
             return false;
         }
