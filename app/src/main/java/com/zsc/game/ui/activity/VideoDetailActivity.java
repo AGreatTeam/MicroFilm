@@ -124,6 +124,7 @@ public class VideoDetailActivity extends BaseActivity<ShiPinPresenter> implement
     public void getShipin(ShipinContentInfo.RetBean retBean) {
         if (retBean != null && retBean.getHDURL() != null) {
             hdurl = retBean.getHDURL();
+            //播放视频 记录历史 添加数据库
             DaoUtils.insert(retBean,dataId);
         } else {
             hdurl = "http://movie.vods1.cnlive.com/3/vod/2017/0613/3_8cd070627bb54939bf8763e40cad3fbe/ff8080815bf6b453015ca02f88462114_1500.m3u8";

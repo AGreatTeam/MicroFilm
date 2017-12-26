@@ -1,7 +1,12 @@
 package com.zsc.game.ui.activity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.util.Log;
+import android.view.Display;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.dou361.ijkplayer.widget.PlayStateParams;
 import com.dou361.ijkplayer.widget.PlayerView;
@@ -14,10 +19,14 @@ import com.zsc.game.mvp.view.ShiPinView;
 import com.zsc.game.util.DaoUtils;
 import com.zsc.game.util.NetUtils;
 
+import butterknife.BindView;
+
 public class Main3Activity extends BaseActivity<ShiPinPresenter> implements ShiPinView {
 
 
     private String id;
+    @BindView(R.id.app_video_box)
+    RelativeLayout videoBox;
 
     @Override
     protected int setLayout() {
@@ -61,8 +70,34 @@ public class Main3Activity extends BaseActivity<ShiPinPresenter> implements ShiP
     @Override
     protected void initInject(ActivityComponent mainComponent) {
            mainComponent.Inject(this);
+           isScreenChange();
     }
 
+    public boolean isScreenChange() {
+
+        Configuration mConfiguration = this.getResources().getConfiguration(); //获取设置的配置信息
+        int ori = mConfiguration.orientation ; //获取屏幕方向
+
+        if(ori == mConfiguration.ORIENTATION_LANDSCAPE){
+
+//横屏
+            ViewGroup.LayoutParams layoutParams = videoBox.getLayoutParams();
+            layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT;
+            videoBox.setLayoutParams(layoutParams);
+            return true;
+        }else if(ori == mConfiguration.ORIENTATION_PORTRAIT){
+
+//竖屏
+            Display defaultDisplay = getWindowManager().getDefaultDisplay();
+            int height = defaultDisplay.getHeight();
+            System.out.println("高度："+height);
+            ViewGroup.LayoutParams layoutParams = videoBox.getLayoutParams();
+            layoutParams.height = height/5*2;
+            videoBox.setLayoutParams(layoutParams);
+            return false;
+        }
+        return false;
+    }
     //播放视频
     @Override
     public void getShipin(ShipinContentInfo.RetBean retBean) {
