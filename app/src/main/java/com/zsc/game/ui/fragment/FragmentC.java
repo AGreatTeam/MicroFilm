@@ -16,6 +16,7 @@ import com.zsc.game.mvp.model.bean.VideoCatagory;
 import com.zsc.game.mvp.model.bean.VideoDetail;
 import com.zsc.game.mvp.presenter.FcPresenter;
 import com.zsc.game.mvp.view.FcView;
+import com.zsc.game.ui.activity.JZVideoActivity;
 import com.zsc.game.ui.activity.VideoDetailActivity;
 import com.zsc.game.widget.SwipeCardView;
 import com.zsc.game.ui.adapter.SwipeDeckAdapter;
@@ -104,7 +105,7 @@ public class FragmentC extends BaseFragment<FcPresenter> implements FcView {
 
                     @Override
                     public void onItemClick(View cardImageView, int index) {
-                        Intent intent = new Intent(getContext(), VideoDetailActivity.class);
+                        Intent intent = new Intent(getContext(), JZVideoActivity.class);
                         VideoCatagory.RetBean.ListBean listBean = list.get(index);
                         VideoDetail videoDetail = new VideoDetail(listBean.title,listBean.pic,listBean.dataId,listBean.score,listBean.airTime,listBean.loadURL,listBean.loadtype);
                         intent.putExtra("videoInfo", videoDetail);

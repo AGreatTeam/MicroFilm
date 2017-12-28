@@ -155,5 +155,6 @@ dependencies {
 
     //对应 ijkplayer 的  compile 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.6.0'
     compile 'com.dou361.ijkplayer-x86_64:jjdxm-ijkplayer-x86_64:1.0.0'
+    compile 'cn.jzvd:jiaozivideoplayer:6.2.3'
 }
 

@@ -4,6 +4,7 @@ import com.zsc.game.di.module.MainModule;
 import com.zsc.game.di.module.YourScope;
 import com.zsc.game.ui.activity.ClassifyListActivity;
 import com.zsc.game.ui.activity.DetailActivity;
+import com.zsc.game.ui.activity.JZVideoActivity;
 import com.zsc.game.ui.activity.Main2Activity;
 import com.zsc.game.ui.activity.Main3Activity;
 import com.zsc.game.ui.activity.VideoDetailActivity;
@@ -44,4 +45,6 @@ public interface ActivityComponent {
     void Injext(VRvideoFragment vRvideoFragment);
 
     void Inject(VideoDetailActivity videoDetailActivity);
+
+    void Inject(JZVideoActivity jzVideoActivity);
 }
